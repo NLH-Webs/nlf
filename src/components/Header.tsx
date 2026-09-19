@@ -62,8 +62,8 @@ const Header = () => {
     <header className="sticky top-0 z-50 rounded-b-xl bg-background/80 shadow-sm backdrop-blur-custom">
       <div className="container mx-auto flex items-center justify-between px-6 py-4">
         <h1 className="text-2xl font-bold text-slate-900">
-          <button type="button" onClick={() => scrollToSection("hero")}>
-            NhiLe <span className="text-primary">Foundation</span>
+          <button type="button" onClick={() => scrollToSection("hero")} aria-label="NhiLe Foundation">
+            <img src="/nlf-logo.png" alt="NhiLe Foundation" className="h-12 w-auto" width="500" height="184" />
           </button>
         </h1>
 
