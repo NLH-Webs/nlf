@@ -34,3 +34,5 @@
     backdrop-filter: blur(16px);
   }
 }
+/* Shared lead form section (nlh-contact). */
+.nlh-lead { padding: var(--s-8) var(--gutter); background: var(--bg-sunken); }
