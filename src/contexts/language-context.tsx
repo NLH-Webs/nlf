@@ -129,7 +129,7 @@ const translations = {
       title: "Li\u00ean H\u1ec7",
       subtitle: "H\u00e3y k\u1ebft n\u1ed1i v\u1edbi ch\u00fang t\u00f4i \u0111\u1ec3 c\u00f9ng nhau lan t\u1ecfa y\u00eau th\u01b0\u01a1ng",
       email: "Email",
-      address: "\u0110\u1ecba \u0111i\u1ec3m",
+      address: "Minh b\u1ea1ch t\u00e0i ch\u00ednh",
       mapTitle: "B\u1ea3n \u0111\u1ed3",
       getInTouch: "Li\u00ean h\u1ec7 v\u1edbi ch\u00fang t\u00f4i",
       sendMessage: "G\u1eedi tin nh\u1eafn",
@@ -139,7 +139,7 @@ const translations = {
     },
     footer: {
       tagline: "Tr\u00e1i tim c\u1ee7a h\u1ec7 sinh th\u00e1i NhiLe Holding.",
-      copyright: "\u00a9 2024 NhiLe Foundation. Gi\u1eef m\u1ecdi quy\u1ec1n.",
+      copyright: "\u00a9 NhiLe Foundation \u00b7 T\u1eeb 2020. Gi\u1eef m\u1ecdi quy\u1ec1n.",
     },
   },
   en: {
@@ -249,7 +249,7 @@ const translations = {
       title: "Contact",
       subtitle: "Connect with us to spread love together",
       email: "Email",
-      address: "Address",
+      address: "Financial transparency",
       mapTitle: "Map",
       getInTouch: "Get in Touch",
       sendMessage: "Send Message",
@@ -259,7 +259,7 @@ const translations = {
     },
     footer: {
       tagline: "The heart of the NhiLe Holding ecosystem.",
-      copyright: "\u00a9 2024 NhiLe Foundation. All rights reserved.",
+      copyright: "\u00a9 NhiLe Foundation \u00b7 Since 2020. All rights reserved.",
     },
   },
 } as const;
