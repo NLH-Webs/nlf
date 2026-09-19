@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useTranslations } from "@/contexts/language-context";
+import { useLanguage, useTranslations } from "@/contexts/language-context";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
@@ -9,6 +9,7 @@ import { Mail, ShieldCheck, Send } from "lucide-react";
 
 const Contact = () => {
   const { contact } = useTranslations();
+  const { language } = useLanguage();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -89,70 +90,8 @@ const Contact = () => {
             </div>
           </div>
 
-          {/* Contact Form Section */}
-          <div className="rounded-lg bg-white p-8 shadow-sm">
-            <h2 className="mb-6 text-2xl font-bold text-slate-900">
-              {contact.getInTouch}
-            </h2>
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div>
-                <label htmlFor="name" className="mb-2 block text-sm font-medium text-slate-700">
-                  {contact.name}
-                </label>
-                <Input
-                  id="name"
-                  name="name"
-                  type="text"
-                  value={formData.name}
-                  onChange={handleInputChange}
-                  required
-                  className="w-full"
-                  placeholder={contact.name}
-                />
-              </div>
-              
-              <div>
-                <label htmlFor="email" className="mb-2 block text-sm font-medium text-slate-700">
-                  {contact.email}
-                </label>
-                <Input
-                  id="email"
-                  name="email"
-                  type="email"
-                  value={formData.email}
-                  onChange={handleInputChange}
-                  required
-                  className="w-full"
-                  placeholder="your@email.com"
-                />
-              </div>
-              
-              <div>
-                <label htmlFor="message" className="mb-2 block text-sm font-medium text-slate-700">
-                  {contact.message}
-                </label>
-                <Textarea
-                  id="message"
-                  name="message"
-                  value={formData.message}
-                  onChange={handleInputChange}
-                  required
-                  rows={5}
-                  className="w-full"
-                  placeholder={contact.message}
-                />
-              </div>
-              
-              <Button
-                type="submit"
-                className="w-full md:w-auto"
-                size="lg"
-              >
-                <Send className="mr-2 h-4 w-4" />
-                {contact.send}
-              </Button>
-            </form>
-          </div>
+          {/* Lead form: posts to NhiLe Leads (Sheet + email to contact@nhi.sg) */}
+          <nlh-contact site="nlf" lang={language} topics-vi="Ủng hộ – quyên góp|Tình nguyện chuyên môn|Hợp tác tổ chức|Giới thiệu hoàn cảnh cần hỗ trợ" topics-en="Donation|Volunteer your expertise|Organisational partnership|Refer someone who needs support" />
         </div>
       </main>
       <Footer />
