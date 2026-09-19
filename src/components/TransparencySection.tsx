@@ -2,15 +2,17 @@ import { useState, useEffect } from "react";
 import { format } from "date-fns";
 import { vi, enUS } from "date-fns/locale";
 import { 
-  Calendar, 
-  Search, 
-  TrendingUp, 
-  TrendingDown, 
+  Calendar,
+  Search,
+  TrendingUp,
+  TrendingDown,
   DollarSign,
   ArrowUpDown,
   ChevronLeft,
   ChevronRight,
-  RefreshCw
+  RefreshCw,
+  ShieldCheck,
+  ExternalLink
 } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
@@ -219,6 +221,24 @@ const TransparencySection = () => {
             {transparency.description}
           </p>
         </div>
+
+        {/* Independent verification source — thiennguyen.app (Cổng thông tin điện tử nhân đạo quốc gia) */}
+        <a
+          href="https://thiennguyen.app/user/nhilefoundation"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="mx-auto mb-10 flex max-w-3xl flex-col items-center gap-4 rounded-2xl border border-primary/30 bg-primary/5 p-6 text-center transition hover:border-primary/60 hover:bg-primary/10 sm:flex-row sm:text-left"
+        >
+          <ShieldCheck className="h-10 w-10 shrink-0 text-primary" />
+          <div className="flex-1">
+            <div className="font-semibold text-foreground">{transparency.badgeTitle}</div>
+            <p className="mt-1 text-sm text-slate-600">{transparency.badgeDescription}</p>
+          </div>
+          <span className="inline-flex shrink-0 items-center gap-2 rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground">
+            {transparency.badgeCta}
+            <ExternalLink className="h-4 w-4" />
+          </span>
+        </a>
 
         {/* Summary Cards */}
         <div className="mb-8 grid gap-4 md:grid-cols-4">
