@@ -1,8 +1,9 @@
 import heroImage from "@/assets/hero-children.jpg";
-import { useTranslations } from "@/contexts/language-context";
+import { useLanguage, useTranslations } from "@/contexts/language-context";
 
 const HeroSection = () => {
   const { hero } = useTranslations();
+  const { language } = useLanguage();
 
   const scrollToAction = () => {
     const element = document.getElementById("join-us");
@@ -33,6 +34,11 @@ const HeroSection = () => {
         >
           {hero.cta}
         </button>
+        <p className="mt-6 text-sm text-slate-600">
+          <a href="https://www.facebook.com/nlf.sg/reviews" target="_blank" rel="noopener noreferrer" className="underline underline-offset-4 hover:text-slate-900">
+            {language === "vi" ? "★ 100% giới thiệu · 351 đánh giá trên Facebook" : "★ 100% recommend · 351 Facebook reviews"}
+          </a>
+        </p>
       </div>
     </section>
   );
