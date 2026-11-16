@@ -105,7 +105,7 @@ const Header = () => {
             aria-expanded={isMenuOpen}
             aria-label="Toggle menu"
           >
-            {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            {isMenuOpen ? <X strokeWidth={1.75} className="h-6 w-6" /> : <Menu strokeWidth={1.75} className="h-6 w-6" />}
           </button>
         </div>
       </div>

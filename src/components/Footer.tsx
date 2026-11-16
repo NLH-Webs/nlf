@@ -12,19 +12,19 @@ const Footer = () => {
           <p className="mt-1 text-sm">{footer.tagline}</p>
           <p className="mt-4 text-xs opacity-80">{footer.copyright}</p>
         </div>
-        <ul className="flex flex-col gap-2 text-sm md:items-end">
+        <ul className="flex flex-col text-sm md:items-end">
           <li>
-            <a href={STATEMENT_URL} data-track="cta" data-cta="footer_statement" target="_blank" rel="noopener noreferrer" className="underline decoration-[color:var(--nlf-gold-light)] underline-offset-4">
+            <a href={STATEMENT_URL} data-track="cta" data-cta="footer_statement" target="_blank" rel="noopener noreferrer" className="inline-block py-2.5 underline decoration-[color:var(--nlf-gold-light)] underline-offset-4">
               {contact.statementLink}
             </a>
           </li>
           <li>
-            <a href={NLH_URL} data-track="ecosystem" data-cta="footer_nlh" target="_blank" rel="noopener noreferrer" className="underline decoration-[color:var(--nlf-gold-light)] underline-offset-4">
+            <a href={NLH_URL} data-track="ecosystem" data-cta="footer_nlh" target="_blank" rel="noopener noreferrer" className="inline-block py-2.5 underline decoration-[color:var(--nlf-gold-light)] underline-offset-4">
               {nav.holdings}
             </a>
           </li>
           <li>
-            <a href={mailto("footer_email")} data-track="contact" data-cta="footer_email" className="underline decoration-[color:var(--nlf-gold-light)] underline-offset-4">
+            <a href={mailto("footer_email")} data-track="contact" data-cta="footer_email" className="inline-block py-2.5 underline decoration-[color:var(--nlf-gold-light)] underline-offset-4">
               nhilefoundation.sg@gmail.com
             </a>
           </li>

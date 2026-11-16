@@ -22,7 +22,7 @@ const ProjectsSection = () => {
   return (
     <section id="projects" className="bg-secondary py-14 md:py-20">
       <div className="container mx-auto px-4 md:px-6">
-        <div className="mb-10 grid items-end gap-6 md:grid-cols-[1fr_280px]">
+        <div className="nlf-reveal mb-10 grid items-end gap-6 md:grid-cols-[1fr_280px]">
           <div>
             <span className="nlf-gold-rule mb-4" aria-hidden="true" />
             <h2 className="font-display text-2xl font-bold text-slate-900 md:text-4xl">{projects.heading}</h2>
@@ -41,7 +41,11 @@ const ProjectsSection = () => {
         {/* F pattern: short title first, then at most two sentences, then one link. */}
         <ol className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
           {projects.items.map((item, index) => (
-            <li key={projectLinks[index]} className="flex flex-col rounded-xl bg-card p-5 shadow-sm">
+            <li
+              key={projectLinks[index]}
+              className="nlf-reveal flex flex-col rounded-xl bg-card p-5 shadow-sm"
+              style={{ transitionDelay: `${(index % 3) * 60}ms` }}
+            >
               <h3 className="text-lg font-semibold text-slate-900">{item.title}</h3>
               <p className="mt-2 flex-1 text-sm text-slate-700">{item.description}</p>
               <a
@@ -50,10 +54,10 @@ const ProjectsSection = () => {
                 data-cta={`project_post_${index + 1}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="nlf-link mt-4 inline-flex items-center gap-1 text-sm font-medium"
+                className="nlf-link mt-3 inline-flex min-h-11 items-center gap-1 text-sm font-medium"
               >
                 {projects.cta}
-                <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
+                <ArrowUpRight className="h-4 w-4" strokeWidth={1.75} aria-hidden="true" />
               </a>
             </li>
           ))}

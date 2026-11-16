@@ -192,7 +192,7 @@ const TransparencySection = () => {
   return (
     <section id="transparency" className="bg-background py-14 md:py-20">
       <div className="container mx-auto px-4 md:px-6">
-        <div className="mb-10">
+        <div className="nlf-reveal mb-10">
           <span className="nlf-gold-rule mb-4" aria-hidden="true" />
           <h2 className="font-display mb-2 text-2xl font-bold text-slate-900 md:text-4xl">
             {transparency.heading}
@@ -203,7 +203,7 @@ const TransparencySection = () => {
         </div>
 
         {/* Who holds the fund (SO-CHUAN, chốt 16/11/2026) */}
-        <div className="mb-4 max-w-3xl rounded-2xl border border-slate-200 bg-card p-5 text-left md:p-6">
+        <div className="nlf-reveal mb-4 max-w-3xl rounded-2xl border border-slate-200 bg-card p-5 text-left md:p-6">
           <h3 className="mb-2 font-semibold text-foreground">{transparency.legalTitle}</h3>
           <p className="text-sm text-slate-700">{transparency.legalBody}</p>
         </div>
@@ -217,14 +217,14 @@ const TransparencySection = () => {
           rel="noopener noreferrer"
           className="mb-10 flex max-w-3xl flex-col items-start gap-4 rounded-2xl border-2 border-[color:var(--nlf-gold)] bg-card p-5 text-left transition hover:shadow-md sm:flex-row sm:items-center md:p-6"
         >
-          <ShieldCheck className="h-10 w-10 shrink-0 text-[color:var(--nlf-gold)]" aria-hidden="true" />
+          <ShieldCheck strokeWidth={1.75} className="h-10 w-10 shrink-0 text-[color:var(--nlf-gold)]" aria-hidden="true" />
           <div className="flex-1">
             <div className="font-semibold text-foreground">{transparency.badgeTitle}</div>
             <p className="mt-1 text-sm text-slate-700">{transparency.badgeDescription}</p>
           </div>
           <span className="inline-flex shrink-0 items-center gap-2 rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground">
             {transparency.badgeCta}
-            <ExternalLink className="h-4 w-4" />
+            <ExternalLink strokeWidth={1.75} className="h-4 w-4" />
           </span>
         </a>
 
@@ -235,7 +235,7 @@ const TransparencySection = () => {
               <CardTitle className="text-sm font-medium">
                 {language === 'vi' ? 'Số dư tài khoản' : 'Account Balance'}
               </CardTitle>
-              <DollarSign className="h-4 w-4 text-muted-foreground" />
+              <DollarSign strokeWidth={1.75} className="h-4 w-4 text-muted-foreground" />
             </CardHeader>
             <CardContent>
               <div className="text-lg font-bold text-slate-900 md:text-2xl">
@@ -254,7 +254,7 @@ const TransparencySection = () => {
               <CardTitle className="text-sm font-medium">
                 {language === 'vi' ? 'Tổng Thu' : 'Total Income'}
               </CardTitle>
-              <TrendingUp className="h-4 w-4 text-slate-600" aria-hidden="true" />
+              <TrendingUp strokeWidth={1.75} className="h-4 w-4 text-slate-600" aria-hidden="true" />
             </CardHeader>
             <CardContent>
               <div className="text-lg font-bold text-slate-900 md:text-2xl">
@@ -268,7 +268,7 @@ const TransparencySection = () => {
               <CardTitle className="text-sm font-medium">
                 {language === 'vi' ? 'Tổng Chi' : 'Total Expenses'}
               </CardTitle>
-              <TrendingDown className="h-4 w-4 text-slate-600" aria-hidden="true" />
+              <TrendingDown strokeWidth={1.75} className="h-4 w-4 text-slate-600" aria-hidden="true" />
             </CardHeader>
             <CardContent>
               <div className="text-lg font-bold text-slate-900 md:text-2xl">
@@ -282,7 +282,7 @@ const TransparencySection = () => {
               <CardTitle className="text-sm font-medium">
                 {language === 'vi' ? 'Tài khoản' : 'Account'}
               </CardTitle>
-              <ArrowUpDown className="h-4 w-4 text-muted-foreground" />
+              <ArrowUpDown strokeWidth={1.75} className="h-4 w-4 text-muted-foreground" />
             </CardHeader>
             <CardContent>
               <div className="space-y-1">
@@ -314,7 +314,7 @@ const TransparencySection = () => {
                 <Popover>
                   <PopoverTrigger asChild>
                     <Button variant="outline" className="w-full justify-start text-left font-normal sm:w-[300px]">
-                      <Calendar className="mr-2 h-4 w-4" />
+                      <Calendar strokeWidth={1.75} className="mr-2 h-4 w-4" />
                       {dateRange.from ? (
                         dateRange.to ? (
                           <>
@@ -352,13 +352,13 @@ const TransparencySection = () => {
                   className="w-full sm:w-[300px]"
                 />
                 <Button onClick={handleSearch} disabled={loading} variant="outline" aria-label={language === 'vi' ? 'Tìm' : 'Search'}>
-                  <Search className="h-4 w-4" />
+                  <Search strokeWidth={1.75} className="h-4 w-4" />
                 </Button>
               </div>
 
               {/* Refresh Button */}
               <Button onClick={fetchTransactions} disabled={loading} variant="outline" aria-label={language === 'vi' ? 'Tải lại' : 'Refresh'}>
-                <RefreshCw className={`h-4 w-4 ${loading ? 'animate-spin' : ''}`} />
+                <RefreshCw strokeWidth={1.75} className={`h-4 w-4 ${loading ? 'animate-spin' : ''}`} />
               </Button>
             </div>
           </CardContent>
@@ -374,7 +374,7 @@ const TransparencySection = () => {
           <CardContent>
             {loading ? (
               <div className="flex justify-center py-8">
-                <RefreshCw className="h-8 w-8 animate-spin" />
+                <RefreshCw strokeWidth={1.75} className="h-8 w-8 animate-spin" />
               </div>
             ) : (
               <>
@@ -450,7 +450,7 @@ const TransparencySection = () => {
                         onClick={() => handlePageChange(currentPage - 1)}
                         disabled={currentPage === 1}
                       >
-                        <ChevronLeft className="h-4 w-4" />
+                        <ChevronLeft strokeWidth={1.75} className="h-4 w-4" />
                         {language === 'vi' ? 'Trước' : 'Previous'}
                       </Button>
                       <Button
@@ -460,7 +460,7 @@ const TransparencySection = () => {
                         disabled={!hasNextPage}
                       >
                         {language === 'vi' ? 'Tiếp' : 'Next'}
-                        <ChevronRight className="h-4 w-4" />
+                        <ChevronRight strokeWidth={1.75} className="h-4 w-4" />
                       </Button>
                     </div>
                   </div>

@@ -18,7 +18,7 @@ const LanguageToggle = ({ className }: LanguageToggleProps) => {
       )}
       aria-label="Language selection"
     >
-      <Globe className="h-4 w-4 text-[color:var(--nlf-gold)]" aria-hidden="true" />
+      <Globe strokeWidth={1.75} className="h-4 w-4 text-[color:var(--nlf-gold)]" aria-hidden="true" />
       <div className="flex items-center gap-1">
         {LANGUAGE_OPTIONS.map((option) => {
           const isActive = option.code === language;

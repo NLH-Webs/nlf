@@ -71,3 +71,8 @@ Yes, you can!
 To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
 
 Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+
+## Giấy phép bên thứ ba
+
+- Icon: [Lucide](https://lucide.dev) (gói `lucide-react`), giấy phép ISC. Dùng dạng SVG inline, nét 1.75px, màu theo Brand Guide v3.0.
+- Phông Inter và Playfair Display: SIL Open Font License (xem `src/styles/nlh/OFL-*.txt`).
