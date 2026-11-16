@@ -24,38 +24,29 @@ const translations = {
       vietnamese: "Tiếng Việt",
     },
     nav: {
-      about: "Về Chúng Tôi",
-      projects: "Dự Án",
-      transparency: "Minh Bạch",
+      projects: "Hoạt động",
+      transparency: "Sao kê",
+      contact: "Góp sức",
       holdings: "Về NhiLe Holding",
-      contact: "Liên Hệ",
     },
     hero: {
-      title:
-        "Lan Tỏa Yêu Thương, Chắp Cánh Tương Lai",
+      eyebrow: "NhiLe Foundation · quỹ cộng đồng của NhiLe, từ 2021",
+      title: "Quỹ cộng đồng cho trẻ em khó khăn ở Việt Nam",
       subtitle:
-        "NhiLe Foundation là quỹ cộng đồng của NhiLe, lập năm 2021. Quỹ mang sách vở, sữa, quà và những buổi vui chơi tới trẻ em khó khăn ở Việt Nam. Mọi đồng thu, đồng chi đều có sao kê công khai.",
-      cta: "Ủng hộ quỹ",
-    },
-    about: {
-      title: "Sứ Mệnh & Tầm Nhìn",
-      missionTitle: "Sứ mệnh:",
-      mission:
-        "NhiLe Foundation lập năm 2021 để hỗ trợ và tạo điều kiện phát triển toàn diện cho trẻ em có hoàn cảnh đặc biệt khó khăn tại Việt Nam, tập trung vào giáo dục, sức khỏe và dinh dưỡng.",
-      visionTitle: "Tầm nhìn:",
-      vision:
-        "Trở thành một quỹ cộng đồng bền và minh bạch, là cầu nối tin cậy giữa cộng đồng và những mảnh đời cần giúp đỡ, góp phần xây dựng một thế hệ tương lai khỏe mạnh và trí tuệ.",
-    },
-    stats: {
-      raisedLabel: "Đồng đã chi cho các em trong 12 tháng qua",
-      projectsCompleted: "Hoạt động tiêu biểu kể trên trang này",
-      source: "Nguồn: sao kê công khai của quỹ trên thiennguyen.app, lấy lúc bạn mở trang.",
+        "Quỹ mang sách vở, sữa, quà và những buổi vui chơi tới các em. Mọi đồng thu, đồng chi đều có sao kê công khai trên Thiện Nguyện.",
+      spentLabel: "đồng đã chi cho các em trong 12 tháng qua",
+      spentSource: "Nguồn: sao kê công khai trên Thiện Nguyện, lấy lúc bạn mở trang",
       unavailable: "Đang cập nhật",
+      cta: "Xem sao kê công khai",
+      secondary: "Muốn góp sức? Để lại lời nhắn",
+      reviews: "★ 100% giới thiệu · 351 đánh giá trên Facebook (số đếm ngày 19/09/2026)",
+      imageAlt: "Tình nguyện viên trao túi quà tận tay",
     },
     projects: {
-      heading: "Các Dự Án Nổi Bật",
+      heading: "9 hoạt động quỹ đã làm",
       subheading:
-        "Những hành trình yêu thương mà chúng ta đã cùng nhau thực hiện.",
+        "Mỗi hoạt động có bài và ảnh đầy đủ trên trang Facebook của quỹ.",
+      imageAlt: "Bánh kẹo được trao tận tay các em",
       items: [
         {
           title: "Nụ cười chiến binh nhí",
@@ -83,14 +74,12 @@ const translations = {
             "NhiLe Team đã gửi tặng 55 phần quà cho các em nhỏ, 55 phần quà cho các cụ già và quà cho các sư tại chùa Từ Hạnh, TP.HCM, mang đến niềm vui và nhắc nhở chúng ta về giá trị của sự sẻ chia và lòng nhân ái.",
         },
         {
-          title:
-            "Vẽ lại tuổi thơ bằng gam màu yêu thương",
+          title: "Vẽ lại tuổi thơ bằng gam màu yêu thương",
           description:
             "NhiLe Foundation mang đến niềm vui cho các em nhỏ bị ảnh hưởng bởi chất độc da cam, với những tiếng cười, trò chơi, món quà nhỏ và khoảnh khắc ấm áp được vẽ nên bằng tình thương.",
         },
         {
-          title:
-            "Ghé thăm ngôi trường đặc biệt ở Đà Nẵng",
+          title: "Ghé thăm ngôi trường đặc biệt ở Đà Nẵng",
           description:
             "NhiLe Foundation đến thăm trường dành cho các em nhỏ bị ảnh hưởng bởi chất độc da cam, mang theo quà tặng và trò chơi, nhận lại những nụ cười, ánh mắt háo hức cùng khoảnh khắc ấm áp khó quên.",
         },
@@ -105,42 +94,30 @@ const translations = {
             "Tại Làng Hy Vọng, NhiLe Foundation mang đến những phần quà cho các em nhỏ khiếm thính và khuyết tật, nhận lại những cái ôm, ánh mắt sáng rỡ cùng nụ cười hồn nhiên đầy ấm áp.",
         },
       ],
-      cta: "Xem chi tiết",
-    },
-    callToAction: {
-      heading: "Chung Tay Cùng Chúng Tôi",
-      description:
-        "Mỗi hành động của bạn đều có sức mạnh thay đổi một cuộc đời. Hãy chọn cách bạn muốn đồng hành cùng NhiLe Foundation.",
-      donate: "Ủng hộ quỹ",
-      volunteer: "Muốn góp sức? Để lại lời nhắn cho quỹ",
+      cta: "Xem bài trên Facebook",
     },
     transparency: {
-      heading: "Minh Bạch Là Nền Tảng Của Niềm Tin",
+      heading: "Sao kê công khai",
       description:
-        "Chúng tôi cam kết công khai mọi hoạt động thu chi. Toàn bộ sao kê được công khai trên Thiện Nguyện (thiennguyen.app). Bảng dưới đây lấy thẳng từ đó.",
+        "Bảng dưới lấy thẳng từ sao kê của quỹ trên Thiện Nguyện. Tên người chuyển tiền chỉ hiện chữ cái đầu.",
       legalTitle: "Quỹ đứng tên ai",
       legalBody:
-        "NhiLe Foundation là quỹ cộng đồng của NhiLe, lập năm 2021. Quỹ chưa phải pháp nhân riêng: tài khoản nhận tiền đứng tên cá nhân, và mọi giao dịch hiện trên sao kê công khai ở Thiện Nguyện. Khoảng 20% lợi nhuận của NhiLe được góp vào quỹ.",
+        "NhiLe Foundation là quỹ cộng đồng của NhiLe, lập năm 2021, chưa phải pháp nhân riêng. Tài khoản nhận tiền đứng tên cá nhân; khoảng 20% lợi nhuận của NhiLe được góp vào quỹ.",
       badgeTitle: "Sao kê công khai trên Thiện Nguyện",
       badgeDescription:
-        "Mọi khoản đóng góp vào tài khoản quỹ đều hiện trên sao kê công khai của Thiện Nguyện (thiennguyen.app). Bạn tự kiểm được từng dòng.",
-      badgeCta: "Xem sao kê",
+        "Mọi khoản vào tài khoản quỹ đều hiện ở đây. Bạn tự kiểm được từng dòng.",
+      badgeCta: "Xem sao kê công khai",
     },
     contact: {
-      title: "Liên Hệ",
-      subtitle: "Hãy kết nối với chúng tôi để cùng nhau lan tỏa yêu thương",
-      email: "Email",
-      address: "Minh bạch tài chính",
+      heading: "Góp sức cùng quỹ",
+      body:
+        "Bạn có thể ủng hộ tiền qua tài khoản quỹ trên Thiện Nguyện, hoặc góp thời gian và chuyên môn. Để lại lời nhắn, đội quỹ sẽ liên hệ lại.",
+      donateLink: "Ủng hộ quỹ trên Thiện Nguyện",
+      emailLabel: "Hoặc email",
       statementLink: "Sao kê công khai trên Thiện Nguyện",
-      mapTitle: "Bản đồ",
-      getInTouch: "Liên hệ với chúng tôi",
-      sendMessage: "Gửi tin nhắn",
-      name: "Họ và tên",
-      message: "Tin nhắn",
-      send: "Gửi",
     },
     footer: {
-      tagline: "Trái tim của hệ sinh thái NhiLe Holding.",
+      tagline: "Quỹ cộng đồng của NhiLe, từ 2021.",
       copyright: "© NhiLe Foundation · Từ 2021.",
     },
   },
@@ -150,36 +127,28 @@ const translations = {
       vietnamese: "Tiếng Việt",
     },
     nav: {
-      about: "About Us",
-      projects: "Projects",
-      transparency: "Transparency",
+      projects: "Activities",
+      transparency: "Statement",
+      contact: "Get involved",
       holdings: "About NhiLe Holding",
-      contact: "Contact",
     },
     hero: {
-      title: "Spreading Love, Empowering Futures",
+      eyebrow: "NhiLe Foundation · NhiLe's community fund since 2021",
+      title: "A community fund for children facing hardship in Vietnam",
       subtitle:
-        "NhiLe Foundation is NhiLe's community fund, started in 2021. We bring school supplies, milk, gifts and play days to children facing hardship in Vietnam. Every donation and every expense is on a public bank statement.",
-      cta: "Support the fund",
-    },
-    about: {
-      title: "Mission & Vision",
-      missionTitle: "Mission:",
-      mission:
-        "NhiLe Foundation started in 2021 to support and create holistic development opportunities for children in vulnerable situations across Vietnam, focusing on education, healthcare, and nutrition.",
-      visionTitle: "Vision:",
-      vision:
-        "To be a lasting, transparent community fund that connects supporters with families in need, helping nurture a healthy and well-educated future generation.",
-    },
-    stats: {
-      raisedLabel: "VND spent on children in the last 12 months",
-      projectsCompleted: "Featured activities on this page",
-      source: "Source: the fund's public statement on thiennguyen.app, fetched when you open this page.",
+        "We bring school supplies, milk, gifts and play days to children. Every donation and every expense is on a public statement on Thien Nguyen.",
+      spentLabel: "VND spent on children in the last 12 months",
+      spentSource: "Source: the public statement on Thien Nguyen, fetched when you open this page",
       unavailable: "Updating",
+      cta: "View the public statement",
+      secondary: "Want to help? Leave us a message",
+      reviews: "★ 100% recommend · 351 Facebook reviews (count as of 19 Sep 2026)",
+      imageAlt: "A volunteer handing over a gift bag",
     },
     projects: {
-      heading: "Featured Initiatives",
-      subheading: "Acts of kindness we have brought to life together.",
+      heading: "9 things the fund has done",
+      subheading: "Each one has a full post with photos on the fund's Facebook page.",
+      imageAlt: "Snacks handed out to children",
       items: [
         {
           title: "Smiles of Little Warriors",
@@ -227,42 +196,30 @@ const translations = {
             "At Hope Village, we delivered gifts to children with hearing and physical difficulties, receiving warm embraces, sparkling eyes, and innocent, heartfelt smiles in return.",
         },
       ],
-      cta: "Explore",
-    },
-    callToAction: {
-      heading: "Join Hands With Us",
-      description:
-        "Every action you take can transform a life. Choose how you want to walk alongside NhiLe Foundation.",
-      donate: "Support the fund",
-      volunteer: "Want to help? Leave us a message",
+      cta: "Read the post on Facebook",
     },
     transparency: {
-      heading: "Transparency Builds Trust",
+      heading: "Public statement",
       description:
-        "We publish every donation and every expense. The full bank statement is public on Thien Nguyen (thiennguyen.app), and the table below is pulled straight from it.",
+        "The table below comes straight from the fund's statement on Thien Nguyen. Senders show as initials only.",
       legalTitle: "Who holds the fund",
       legalBody:
-        "NhiLe Foundation is NhiLe's community fund, started in 2021. It is not yet a separate legal entity: the receiving account is held by an individual, and every transaction appears on the public statement on Thien Nguyen. About 20% of NhiLe's profit goes into the fund.",
+        "NhiLe Foundation is NhiLe's community fund, started in 2021. It is not yet a separate legal entity: the receiving account is held by an individual, and about 20% of NhiLe's profit goes into the fund.",
       badgeTitle: "Public statement on Thien Nguyen",
       badgeDescription:
-        "Every transfer into the fund's account shows up on its public statement on Thien Nguyen (thiennguyen.app). You can check each line yourself.",
-      badgeCta: "View statement",
+        "Every transfer into the fund's account shows up here. You can check each line yourself.",
+      badgeCta: "View the public statement",
     },
     contact: {
-      title: "Contact",
-      subtitle: "Connect with us to spread love together",
-      email: "Email",
-      address: "Financial transparency",
+      heading: "Get involved",
+      body:
+        "You can give money through the fund's account on Thien Nguyen, or give your time and skills. Leave a message and the fund's team will get back to you.",
+      donateLink: "Donate on Thien Nguyen",
+      emailLabel: "Or email",
       statementLink: "Public statement on Thien Nguyen",
-      mapTitle: "Map",
-      getInTouch: "Get in Touch",
-      sendMessage: "Send Message",
-      name: "Name",
-      message: "Message",
-      send: "Send",
     },
     footer: {
-      tagline: "The heart of the NhiLe Holding ecosystem.",
+      tagline: "NhiLe's community fund, since 2021.",
       copyright: "© NhiLe Foundation · Since 2021.",
     },
   },

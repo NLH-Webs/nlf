@@ -22,14 +22,13 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@
 import { Badge } from "@/components/ui/badge";
 import { Calendar as CalendarComponent } from "@/components/ui/calendar";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useTranslations, useLanguage } from "@/contexts/language-context";
 import { API_ENDPOINTS, BANK_ACCOUNT_ID, STATEMENT_URL } from "@/config/api";
 import { maskName } from "@/lib/mask";
 import { Transaction, TransactionResponse, TransactionFilters } from "@/types/transaction";
 
 const TransparencySection = () => {
-  const { transparency, stats } = useTranslations();
+  const { transparency, hero } = useTranslations();
   const { language } = useLanguage();
   
   const [transactions, setTransactions] = useState<Transaction[]>([]);
@@ -67,7 +66,6 @@ const TransparencySection = () => {
   });
   
   const [searchKeyword, setSearchKeyword] = useState('');
-  const [pageSize, setPageSize] = useState(10);
 
   const fetchTransactions = async () => {
     setLoading(true);
@@ -167,15 +165,6 @@ const TransparencySection = () => {
     }));
   };
 
-  const handlePageSizeChange = (newPageSize: number) => {
-    setPageSize(newPageSize);
-    setFilters(prev => ({
-      ...prev,
-      pageSize: newPageSize,
-      pageNumber: 1,
-    }));
-  };
-
   const formatCurrency = (amount: number) => {
     return new Intl.NumberFormat('vi-VN', {
       style: 'currency',
@@ -189,7 +178,9 @@ const TransparencySection = () => {
   };
 
   const getTransactionTypeColor = (type: string) => {
-    return type === 'CREDIT' ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800';
+    return type === 'CREDIT'
+      ? 'bg-[#F3E6C4] text-slate-900 hover:bg-[#F3E6C4]'
+      : 'bg-slate-200 text-slate-900 hover:bg-slate-200';
   };
 
   const getTransactionTypeText = (type: string) => {
@@ -199,34 +190,37 @@ const TransparencySection = () => {
   };
 
   return (
-    <section id="transparency" className="bg-background py-20 md:py-28">
-      <div className="container mx-auto px-6">
-        <div className="mb-16 text-center">
-          <h2 className="mb-3 text-3xl font-bold md:text-4xl">
+    <section id="transparency" className="bg-background py-14 md:py-20">
+      <div className="container mx-auto px-4 md:px-6">
+        <div className="mb-10">
+          <span className="nlf-gold-rule mb-4" aria-hidden="true" />
+          <h2 className="font-display mb-2 text-2xl font-bold text-slate-900 md:text-4xl">
             {transparency.heading}
           </h2>
-          <p className="mx-auto max-w-3xl text-slate-600">
+          <p className="max-w-3xl text-slate-700">
             {transparency.description}
           </p>
         </div>
 
         {/* Who holds the fund (SO-CHUAN, chốt 16/11/2026) */}
-        <div className="mx-auto mb-6 max-w-3xl rounded-2xl border border-slate-200 bg-slate-50 p-6 text-left">
+        <div className="mb-4 max-w-3xl rounded-2xl border border-slate-200 bg-card p-5 text-left md:p-6">
           <h3 className="mb-2 font-semibold text-foreground">{transparency.legalTitle}</h3>
-          <p className="text-sm text-slate-600">{transparency.legalBody}</p>
+          <p className="text-sm text-slate-700">{transparency.legalBody}</p>
         </div>
 
         {/* Public statement on thiennguyen.app */}
         <a
           href={STATEMENT_URL}
+          data-track="cta"
+          data-cta="transparency_statement"
           target="_blank"
           rel="noopener noreferrer"
-          className="mx-auto mb-10 flex max-w-3xl flex-col items-center gap-4 rounded-2xl border border-primary/30 bg-primary/5 p-6 text-center transition hover:border-primary/60 hover:bg-primary/10 sm:flex-row sm:text-left"
+          className="mb-10 flex max-w-3xl flex-col items-start gap-4 rounded-2xl border-2 border-[color:var(--nlf-gold)] bg-card p-5 text-left transition hover:shadow-md sm:flex-row sm:items-center md:p-6"
         >
-          <ShieldCheck className="h-10 w-10 shrink-0 text-primary" />
+          <ShieldCheck className="h-10 w-10 shrink-0 text-[color:var(--nlf-gold)]" aria-hidden="true" />
           <div className="flex-1">
             <div className="font-semibold text-foreground">{transparency.badgeTitle}</div>
-            <p className="mt-1 text-sm text-slate-600">{transparency.badgeDescription}</p>
+            <p className="mt-1 text-sm text-slate-700">{transparency.badgeDescription}</p>
           </div>
           <span className="inline-flex shrink-0 items-center gap-2 rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground">
             {transparency.badgeCta}
@@ -235,7 +229,7 @@ const TransparencySection = () => {
         </a>
 
         {/* Summary Cards */}
-        <div className="mb-8 grid gap-4 md:grid-cols-4">
+        <div className="mb-8 grid grid-cols-2 gap-3 md:grid-cols-4 md:gap-4">
           <Card>
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
               <CardTitle className="text-sm font-medium">
@@ -244,8 +238,8 @@ const TransparencySection = () => {
               <DollarSign className="h-4 w-4 text-muted-foreground" />
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold">
-                {failed ? stats.unavailable : formatCurrency(calculatedBalance)}
+              <div className="text-lg font-bold text-slate-900 md:text-2xl">
+                {failed ? hero.unavailable : formatCurrency(calculatedBalance)}
               </div>
               {accountBalance === null && !failed && (
                 <div className="text-xs text-muted-foreground mt-1">
@@ -260,11 +254,11 @@ const TransparencySection = () => {
               <CardTitle className="text-sm font-medium">
                 {language === 'vi' ? 'Tổng Thu' : 'Total Income'}
               </CardTitle>
-              <TrendingUp className="h-4 w-4 text-green-600" />
+              <TrendingUp className="h-4 w-4 text-slate-600" aria-hidden="true" />
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold text-green-600">
-                {failed ? stats.unavailable : formatCurrency(totalCredit)}
+              <div className="text-lg font-bold text-slate-900 md:text-2xl">
+                {failed ? hero.unavailable : formatCurrency(totalCredit)}
               </div>
             </CardContent>
           </Card>
@@ -274,11 +268,11 @@ const TransparencySection = () => {
               <CardTitle className="text-sm font-medium">
                 {language === 'vi' ? 'Tổng Chi' : 'Total Expenses'}
               </CardTitle>
-              <TrendingDown className="h-4 w-4 text-red-600" />
+              <TrendingDown className="h-4 w-4 text-slate-600" aria-hidden="true" />
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold text-red-600">
-                {failed ? stats.unavailable : formatCurrency(totalDebit)}
+              <div className="text-lg font-bold text-slate-900 md:text-2xl">
+                {failed ? hero.unavailable : formatCurrency(totalDebit)}
               </div>
             </CardContent>
           </Card>
@@ -314,12 +308,12 @@ const TransparencySection = () => {
             </CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="flex flex-wrap gap-4">
+            <div className="flex flex-wrap gap-3">
               {/* Date Range Picker */}
-              <div className="flex items-center gap-2">
+              <div className="flex w-full items-center gap-2 sm:w-auto">
                 <Popover>
                   <PopoverTrigger asChild>
-                    <Button variant="outline" className="w-[300px] justify-start text-left font-normal">
+                    <Button variant="outline" className="w-full justify-start text-left font-normal sm:w-[300px]">
                       <Calendar className="mr-2 h-4 w-4" />
                       {dateRange.from ? (
                         dateRange.to ? (
@@ -342,7 +336,7 @@ const TransparencySection = () => {
                       defaultMonth={dateRange.from}
                       selected={dateRange}
                       onSelect={handleDateRangeChange}
-                      numberOfMonths={2}
+                      numberOfMonths={typeof window !== 'undefined' && window.innerWidth < 640 ? 1 : 2}
                       locale={language === 'vi' ? vi : enUS}
                     />
                   </PopoverContent>
@@ -350,38 +344,20 @@ const TransparencySection = () => {
               </div>
 
               {/* Search Input */}
-              <div className="flex items-center gap-2">
+              <div className="flex w-full items-center gap-2 sm:w-auto">
                 <Input
                   placeholder={language === 'vi' ? 'Tìm kiếm mã giao dịch hoặc số tài khoản...' : 'Search transaction ID or account number...'}
                   value={searchKeyword}
                   onChange={(e) => setSearchKeyword(e.target.value)}
-                  className="w-[300px]"
+                  className="w-full sm:w-[300px]"
                 />
-                <Button onClick={handleSearch} disabled={loading}>
+                <Button onClick={handleSearch} disabled={loading} variant="outline" aria-label={language === 'vi' ? 'Tìm' : 'Search'}>
                   <Search className="h-4 w-4" />
                 </Button>
               </div>
 
-              {/* Page Size Selector */}
-              <div className="flex items-center gap-2">
-                <Select value={pageSize.toString()} onValueChange={(value) => handlePageSizeChange(Number(value))}>
-                  <SelectTrigger className="w-[120px]">
-                    <SelectValue />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="5">5</SelectItem>
-                    <SelectItem value="10">10</SelectItem>
-                    <SelectItem value="20">20</SelectItem>
-                    <SelectItem value="50">50</SelectItem>
-                  </SelectContent>
-                </Select>
-                <span className="text-sm text-muted-foreground">
-                  {language === 'vi' ? 'mục/trang' : 'items/page'}
-                </span>
-              </div>
-
               {/* Refresh Button */}
-              <Button onClick={fetchTransactions} disabled={loading} variant="outline">
+              <Button onClick={fetchTransactions} disabled={loading} variant="outline" aria-label={language === 'vi' ? 'Tải lại' : 'Refresh'}>
                 <RefreshCw className={`h-4 w-4 ${loading ? 'animate-spin' : ''}`} />
               </Button>
             </div>
@@ -422,7 +398,7 @@ const TransparencySection = () => {
                               {language === 'vi'
                                 ? 'Chưa tải được sao kê lúc này. Bạn xem trực tiếp trên '
                                 : "We couldn't load the statement right now. See it directly on "}
-                              <a href={STATEMENT_URL} target="_blank" rel="noopener noreferrer" className="text-primary underline">thiennguyen.app</a>
+                              <a href={STATEMENT_URL} data-track="cta" data-cta="table_error_statement" target="_blank" rel="noopener noreferrer" className="nlf-link">thiennguyen.app</a>
                             </>
                           ) : language === 'vi' ? 'Không có giao dịch nào' : 'No transactions found'}
                         </TableCell>
@@ -444,8 +420,8 @@ const TransparencySection = () => {
                           <TableCell>
                             {maskName(transaction.otherAccountDisplayName)}
                           </TableCell>
-                          <TableCell className={transaction.type === 'CREDIT' ? 'text-green-600' : 'text-red-600'}>
-                            {formatCurrency(transaction.transactionAmount)}
+                          <TableCell className="whitespace-nowrap font-medium text-slate-900">
+                            {transaction.type === 'CREDIT' ? '+' : '−'}{formatCurrency(transaction.transactionAmount)}
                           </TableCell>
                           <TableCell className="max-w-xs truncate">
                             {transaction.type === 'CREDIT'

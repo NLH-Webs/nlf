@@ -2,9 +2,10 @@ import { useEffect, useMemo, useState } from "react";
 
 import { useTranslations } from "@/contexts/language-context";
 import LanguageToggle from "@/components/LanguageToggle";
+import { NLH_URL } from "@/config/api";
 import { Menu, X } from "lucide-react";
 
-const SECTION_IDS = ["about", "projects", "transparency", "contact"] as const;
+const SECTION_IDS = ["projects", "transparency", "contact"] as const;
 
 const Header = () => {
   const { nav } = useTranslations();
@@ -13,12 +14,11 @@ const Header = () => {
 
   const sections = useMemo(
     () => [
-      { id: "about", label: nav.about },
       { id: "projects", label: nav.projects },
       { id: "transparency", label: nav.transparency },
       { id: "contact", label: nav.contact },
     ],
-    [nav.about, nav.projects, nav.transparency, nav.contact],
+    [nav.projects, nav.transparency, nav.contact],
   );
 
   useEffect(() => {
@@ -59,35 +59,37 @@ const Header = () => {
   };
 
   return (
-    <header className="sticky top-0 z-50 rounded-b-xl bg-background/80 shadow-sm backdrop-blur-custom">
-      <div className="container mx-auto flex items-center justify-between px-6 py-4">
-        <h1 className="text-2xl font-bold text-slate-900">
+    <header className="sticky top-0 z-50 border-b border-slate-200 bg-background/90 backdrop-blur-custom">
+      <div className="container mx-auto flex items-center justify-between px-4 py-3 md:px-6">
+        <div className="text-2xl font-bold text-slate-900">
           <button type="button" onClick={() => scrollToSection("hero")} aria-label="NhiLe Foundation">
-            <img src="/nlf-logo.png" alt="NhiLe Foundation" className="h-12 w-auto" width="500" height="184" />
+            <img src="/nlf-logo.png" alt="NhiLe Foundation" className="h-10 w-auto md:h-12" width="500" height="184" />
           </button>
-        </h1>
+        </div>
 
-        <nav className="hidden items-center space-x-4 md:flex">
+        <nav className="hidden items-center gap-2 md:flex">
           {sections.map(({ id, label }) => (
             <button
               key={id}
               type="button"
               onClick={() => scrollToSection(id)}
               aria-current={activeSection === id ? "page" : undefined}
-              className={`rounded-full px-5 py-2.5 text-sm font-medium capitalize transition-all duration-200 ${
+              className={`border-b-2 px-3 py-2 text-sm font-medium transition-colors duration-200 ${
                 activeSection === id
-                  ? "scale-105 bg-primary text-primary-foreground shadow-md"
-                  : "text-slate-700 hover:bg-slate-100 hover:text-primary"
+                  ? "border-[color:var(--nlf-gold)] text-slate-900"
+                  : "border-transparent text-slate-700 hover:text-slate-900"
               }`}
             >
               {label}
             </button>
           ))}
           <a
-            href="https://nlh.vn"
+            href={NLH_URL}
+            data-track="ecosystem"
+            data-cta="header_nlh"
             target="_blank"
             rel="noopener noreferrer"
-            className="rounded-full px-5 py-2.5 text-sm text-slate-700 transition-all duration-200 hover:bg-slate-100 hover:text-primary"
+            className="px-3 py-2 text-sm text-slate-700 transition-colors duration-200 hover:text-slate-900"
           >
             {nav.holdings}
           </a>
@@ -118,18 +120,20 @@ const Header = () => {
               aria-current={activeSection === id ? "page" : undefined}
               className={`block w-full rounded-md px-3 py-2 text-left transition-colors ${
                 activeSection === id
-                  ? "bg-primary/10 font-medium text-primary"
-                  : "text-slate-600 hover:bg-slate-100 hover:text-primary"
+                  ? "bg-slate-100 font-medium text-slate-900"
+                  : "text-slate-700 hover:bg-slate-100 hover:text-slate-900"
               }`}
             >
               {label}
             </button>
           ))}
           <a
-            href="https://nlh.vn"
+            href={NLH_URL}
+            data-track="ecosystem"
+            data-cta="menu_nlh"
             target="_blank"
             rel="noopener noreferrer"
-            className="block w-full rounded-md px-3 py-2 text-left text-slate-600 transition-colors hover:bg-slate-100 hover:text-primary"
+            className="block w-full rounded-md px-3 py-2 text-left text-slate-700 transition-colors hover:bg-slate-100 hover:text-slate-900"
           >
             {nav.holdings}
           </a>

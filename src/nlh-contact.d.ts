@@ -2,7 +2,7 @@
 declare global {
   namespace JSX {
     interface IntrinsicElements {
-      'nlh-contact': { site?: string; lang?: string; topics?: string; 'topics-vi'?: string; 'topics-en'?: string; heading?: string; 'no-heading'?: string; endpoint?: string };
+      'nlh-contact': { site?: string; lang?: string; topics?: string; 'topics-vi'?: string; 'topics-en'?: string; heading?: string; 'no-heading'?: string; compact?: string; 'data-cta'?: string; endpoint?: string };
     }
   }
 }

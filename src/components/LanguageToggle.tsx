@@ -12,13 +12,13 @@ const LanguageToggle = ({ className }: LanguageToggleProps) => {
   return (
     <div
       className={cn(
-        "flex items-center gap-2 rounded-full border border-slate-200 bg-white px-2.5 py-1.5 text-sm text-slate-600 shadow-sm",
+        "flex items-center gap-2 rounded-full border border-slate-300 bg-white px-2.5 py-1.5 text-sm text-slate-600 shadow-sm",
         "transition-colors duration-200",
         className,
       )}
       aria-label="Language selection"
     >
-      <Globe className="h-4 w-4 text-primary" aria-hidden="true" />
+      <Globe className="h-4 w-4 text-[color:var(--nlf-gold)]" aria-hidden="true" />
       <div className="flex items-center gap-1">
         {LANGUAGE_OPTIONS.map((option) => {
           const isActive = option.code === language;
@@ -28,14 +28,16 @@ const LanguageToggle = ({ className }: LanguageToggleProps) => {
               type="button"
               onClick={() => setLanguage(option.code)}
               aria-pressed={isActive}
+              aria-label={option.fullLabel}
               className={cn(
-                "rounded-full px-3 py-1 font-medium transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/70 focus-visible:ring-offset-2",
+                "rounded-full px-3 py-1 font-medium transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-900/70 focus-visible:ring-offset-2",
                 isActive
-                  ? "bg-primary text-primary-foreground shadow-sm"
-                  : "text-slate-600 hover:text-primary",
+                  ? "bg-slate-900 text-background shadow-sm"
+                  : "text-slate-700 hover:text-slate-900",
               )}
             >
-              {option.shortLabel}
+              <span className="md:hidden">{option.code.toUpperCase()}</span>
+              <span className="hidden md:inline">{option.shortLabel}</span>
             </button>
           );
         })}

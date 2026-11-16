@@ -28,4 +28,9 @@ export const BANK_ACCOUNT_ID = '8711';
 // One donation destination for the whole site: the fund's public page on Thiện Nguyện.
 export const DONATE_URL = 'https://thiennguyen.app/user/nhilefoundation';
 // Official public statement link (sent by chị Nhi 16/11/2026).
+// Links to other NhiLe sites carry where the visitor came from.
+export const NLH_URL = 'https://nlh.vn/?utm_source=nlf.sg&utm_medium=web&utm_campaign=ecosystem';
+// mailto with a subject that says which site and which button it came from.
+export const mailto = (cta: string) =>
+  `mailto:nhilefoundation.sg@gmail.com?subject=${encodeURIComponent(`[nlf] ${cta}`)}`;
 export const STATEMENT_URL = 'https://thiennguyen.app/user/nhilefoundation?tab=TRANSACTIONS';

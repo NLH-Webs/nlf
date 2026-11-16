@@ -1,65 +1,49 @@
-import { useTranslations } from "@/contexts/language-context";
-import { Mail, ShieldCheck } from "lucide-react";
+import { useLanguage, useTranslations } from "@/contexts/language-context";
+import { DONATE_URL, STATEMENT_URL, mailto } from "@/config/api";
 
+// One job here: leave a message (three boxes). Donating is a plain link, not a second button.
 const ContactSection = () => {
   const { contact } = useTranslations();
+  const { language } = useLanguage();
 
   return (
-    <section id="contact" className="bg-slate-50 py-16 md:py-24">
-      <div className="container mx-auto px-6">
-        <div className="mx-auto max-w-4xl">
-          {/* Header */}
-          <div className="mb-12 text-center">
-            <h2 className="mb-4 text-3xl font-bold text-slate-900 md:text-4xl">
-              {contact.title}
-            </h2>
-            <p className="text-lg text-slate-600">{contact.subtitle}</p>
-          </div>
-
-          {/* Contact Information */}
-          <div className="grid gap-8 md:grid-cols-2 lg:gap-12">
-            {/* Email */}
-            <div className="rounded-lg bg-white p-6 shadow-sm transition-shadow hover:shadow-md">
-              <div className="flex items-start space-x-4">
-                <div className="rounded-full bg-primary/10 p-3">
-                  <Mail className="h-6 w-6 text-primary" />
-                </div>
-                <div className="flex-1">
-                  <h3 className="mb-2 text-lg font-semibold text-slate-900">
-                    {contact.email}
-                  </h3>
-                  <a
-                    href="mailto:nhilefoundation.sg@gmail.com"
-                    className="text-primary hover:underline break-all"
-                  >
-                    nhilefoundation.sg@gmail.com
-                  </a>
-                </div>
-              </div>
-            </div>
-
-            {/* Address */}
-            <div className="rounded-lg bg-white p-6 shadow-sm transition-shadow hover:shadow-md">
-              <div className="flex items-start space-x-4">
-                <div className="rounded-full bg-primary/10 p-3">
-                  <ShieldCheck className="h-6 w-6 text-primary" />
-                </div>
-                <div className="flex-1">
-                  <h3 className="mb-2 text-lg font-semibold text-slate-900">
-                    {contact.address}
-                  </h3>
-                  <a
-                    href="https://thiennguyen.app/user/nhilefoundation?tab=TRANSACTIONS"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-primary hover:underline"
-                  >
-                    {contact.statementLink}
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
+    <section id="contact" className="bg-secondary py-14 md:py-20">
+      <span id="gop-suc" aria-hidden="true" />
+      <span id="lien-he" aria-hidden="true" />
+      <div className="container mx-auto grid gap-8 px-4 md:grid-cols-[1fr_1.2fr] md:gap-12 md:px-6">
+        <div>
+          <span className="nlf-gold-rule mb-4" aria-hidden="true" />
+          <h2 className="font-display text-2xl font-bold text-slate-900 md:text-4xl">{contact.heading}</h2>
+          <p className="mt-3 max-w-md text-slate-700">{contact.body}</p>
+          <ul className="mt-6 space-y-3 text-sm">
+            <li>
+              <a href={DONATE_URL} data-track="cta" data-cta="contact_donate" target="_blank" rel="noopener noreferrer" className="nlf-link font-medium">
+                {contact.donateLink}
+              </a>
+            </li>
+            <li>
+              <a href={STATEMENT_URL} data-track="cta" data-cta="contact_statement" target="_blank" rel="noopener noreferrer" className="nlf-link">
+                {contact.statementLink}
+              </a>
+            </li>
+            <li className="text-slate-700">
+              {contact.emailLabel}{" "}
+              <a href={mailto("contact_email")} data-track="contact" data-cta="contact_email" className="nlf-link break-all">
+                nhilefoundation.sg@gmail.com
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div className="nlh-lead-card">
+          <nlh-contact
+            site="nlf"
+            lang={language}
+            compact=""
+            no-heading=""
+            data-cta="gop_suc_form"
+            topics-vi="Góp sức cho quỹ|Ủng hộ – quyên góp|Hợp tác tổ chức|Giới thiệu hoàn cảnh cần hỗ trợ"
+            topics-en="Help the fund|Donation|Organisational partnership|Refer someone who needs support"
+          />
         </div>
       </div>
     </section>
