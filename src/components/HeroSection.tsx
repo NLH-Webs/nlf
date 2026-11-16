@@ -1,16 +1,10 @@
 import heroImage from "@/assets/hero-children.jpg";
 import { useLanguage, useTranslations } from "@/contexts/language-context";
+import { DONATE_URL } from "@/config/api";
 
 const HeroSection = () => {
   const { hero } = useTranslations();
   const { language } = useLanguage();
-
-  const scrollToAction = () => {
-    const element = document.getElementById("join-us");
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
-  };
 
   return (
     <section
@@ -22,21 +16,25 @@ const HeroSection = () => {
         style={{ backgroundImage: `url(${heroImage})` }}
       />
       <div className="container relative mx-auto px-6">
-        <h2 className="charity-text-gradient mb-4 text-4xl font-extrabold leading-tight md:text-6xl">
+        <h1 className="charity-text-gradient mb-4 text-4xl font-extrabold leading-tight md:text-6xl">
           {hero.title}
-        </h2>
+        </h1>
         <p className="mx-auto mb-8 max-w-3xl text-lg text-slate-600 md:text-xl">
           {hero.subtitle}
         </p>
-        <button
-          onClick={scrollToAction}
-          className="transform rounded-full bg-primary px-8 py-3 font-bold text-primary-foreground shadow-lg transition-all hover:scale-105 hover:bg-primary-dark"
+        <a
+          href={DONATE_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-block transform rounded-full bg-primary px-8 py-3 font-bold text-primary-foreground shadow-lg transition-all hover:scale-105 hover:bg-primary-dark"
         >
           {hero.cta}
-        </button>
+        </a>
         <p className="mt-6 text-sm text-slate-600">
           <a href="https://www.facebook.com/nlf.sg/reviews" target="_blank" rel="noopener noreferrer" className="underline underline-offset-4 hover:text-slate-900">
-            {language === "vi" ? "★ 100% giới thiệu · 351 đánh giá trên Facebook" : "★ 100% recommend · 351 Facebook reviews"}
+            {language === "vi"
+              ? "★ 100% giới thiệu · 351 đánh giá trên Facebook (số đếm ngày 19/09/2026)"
+              : "★ 100% recommend · 351 Facebook reviews (count as of 19 Sep 2026)"}
           </a>
         </p>
       </div>

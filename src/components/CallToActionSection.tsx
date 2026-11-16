@@ -1,4 +1,5 @@
 import { useTranslations } from "@/contexts/language-context";
+import { DONATE_URL } from "@/config/api";
 
 const CallToActionSection = () => {
   const { callToAction } = useTranslations();
@@ -14,7 +15,7 @@ const CallToActionSection = () => {
         </p>
         <div className="flex flex-col items-center justify-center gap-6 md:flex-row">
           <a
-            href="https://thiennguyen.app/user/nhilefoundation"
+            href={DONATE_URL}
             target="_blank"
             rel="noopener noreferrer"
             className="w-full rounded-full bg-primary px-10 py-4 font-bold text-primary-foreground shadow-lg transition-all hover:scale-105 hover:bg-primary-dark md:w-auto"
@@ -22,10 +23,8 @@ const CallToActionSection = () => {
             {callToAction.donate}
           </a>
           <a
-            href="https://www.facebook.com/nlf.sg"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="w-full rounded-full bg-slate-100 px-10 py-4 font-bold text-slate-800 transition-colors hover:bg-slate-200 md:w-auto"
+            href="#lien-he"
+            className="font-semibold text-slate-700 underline underline-offset-4 hover:text-slate-900"
           >
             {callToAction.volunteer}
           </a>

@@ -77,6 +77,7 @@ const ProjectsSection = () => {
                 <img
                   src={project.image}
                   alt={projectCopy.title}
+                  loading="lazy"
                   className="h-48 w-full object-cover"
                 />
                 <div className="p-6">

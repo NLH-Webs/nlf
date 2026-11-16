@@ -10,7 +10,7 @@ export default defineConfig(({ mode }) => ({
     port: 8080,
     proxy: {
       '/api': {
-        target: 'https://apiv2.thiennguyen.app',
+        target: 'https://api-pilot.thiennguyen.app',
         changeOrigin: true,
         secure: true,
         configure: (proxy, _options) => {
@@ -31,7 +31,7 @@ export default defineConfig(({ mode }) => ({
     port: 4173,
     proxy: {
       '/api': {
-        target: 'https://apiv2.thiennguyen.app',
+        target: 'https://api-pilot.thiennguyen.app',
         changeOrigin: true,
         secure: true,
         configure: (proxy, _options) => {

@@ -84,7 +84,7 @@ const Header = () => {
             </button>
           ))}
           <a
-            href="https://nlh.nhi.sg"
+            href="https://nlh.vn"
             target="_blank"
             rel="noopener noreferrer"
             className="rounded-full px-5 py-2.5 text-sm text-slate-700 transition-all duration-200 hover:bg-slate-100 hover:text-primary"
@@ -126,7 +126,7 @@ const Header = () => {
             </button>
           ))}
           <a
-            href="https://nlh.nhi.sg"
+            href="https://nlh.vn"
             target="_blank"
             rel="noopener noreferrer"
             className="block w-full rounded-md px-3 py-2 text-left text-slate-600 transition-colors hover:bg-slate-100 hover:text-primary"

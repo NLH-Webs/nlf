@@ -21,125 +21,126 @@ const translations = {
   vi: {
     languageToggle: {
       english: "English",
-      vietnamese: "Ti\u1ebfng Vi\u1ec7t",
+      vietnamese: "Tiếng Việt",
     },
     nav: {
-      about: "V\u1ec1 Ch\u00fang T\u00f4i",
-      projects: "D\u1ef1 \u00c1n",
-      transparency: "Minh B\u1ea1ch",
-      holdings: "V\u1ec1 NhiLe Holding",
-      contact: "Li\u00ean H\u1ec7",
+      about: "Về Chúng Tôi",
+      projects: "Dự Án",
+      transparency: "Minh Bạch",
+      holdings: "Về NhiLe Holding",
+      contact: "Liên Hệ",
     },
     hero: {
       title:
-        "Lan T\u1ecfa Y\u00eau Th\u01b0\u01a1ng, Ch\u1eafp C\u00e1nh T\u01b0\u01a1ng Lai",
+        "Lan Tỏa Yêu Thương, Chắp Cánh Tương Lai",
       subtitle:
-        "M\u1ed7i \u0111\u00f3ng g\u00f3p, d\u00f9 nh\u1ecf nh\u1ea5t, \u0111\u1ec1u g\u00f3p ph\u1ea7n t\u1ea1o n\u00ean nh\u1eefng thay \u0111\u1ed5i l\u1edbn lao cho cu\u1ed9c \u0111\u1eddi c\u00e1c em nh\u1ecf c\u00f3 ho\u00e0n c\u1ea3nh kh\u00f3 kh\u0103n.",
-      cta: "Chung Tay H\u00e0nh \u0110\u1ed9ng",
+        "NhiLe Foundation là quỹ cộng đồng của NhiLe, lập năm 2021. Quỹ mang sách vở, sữa, quà và những buổi vui chơi tới trẻ em khó khăn ở Việt Nam. Mọi đồng thu, đồng chi đều có sao kê công khai.",
+      cta: "Ủng hộ quỹ",
     },
     about: {
-      title: "S\u1ee9 M\u1ec7nh & T\u1ea7m Nh\u00ecn",
-      missionTitle: "S\u1ee9 m\u1ec7nh:",
+      title: "Sứ Mệnh & Tầm Nhìn",
+      missionTitle: "Sứ mệnh:",
       mission:
-        "NhiLe Foundation \u0111\u01b0\u1ee3c th\u00e0nh l\u1eadp v\u1edbi m\u1ee5c ti\u00eau h\u1ed7 tr\u1ee3 v\u00e0 t\u1ea1o \u0111i\u1ec1u ki\u1ec7n ph\u00e1t tri\u1ec3n to\u00e0n di\u1ec7n cho tr\u1ebb em c\u00f3 ho\u00e0n c\u1ea3nh \u0111\u1eb7c bi\u1ec7t kh\u00f3 kh\u0103n t\u1ea1i Vi\u1ec7t Nam, t\u1eadp trung v\u00e0o gi\u00e1o d\u1ee5c, s\u1ee9c kh\u1ecfe v\u00e0 dinh d\u01b0\u1ee1ng.",
-      visionTitle: "T\u1ea7m nh\u00ecn:",
+        "NhiLe Foundation lập năm 2021 để hỗ trợ và tạo điều kiện phát triển toàn diện cho trẻ em có hoàn cảnh đặc biệt khó khăn tại Việt Nam, tập trung vào giáo dục, sức khỏe và dinh dưỡng.",
+      visionTitle: "Tầm nhìn:",
       vision:
-        "Tr\u1edf th\u00e0nh m\u1ed9t t\u1ed5 ch\u1ee9c v\u1eefng m\u1ea1nh, minh b\u1ea1ch, l\u00e0 c\u1ea7u n\u1ed1i tin c\u1eady gi\u1eefa c\u1ed9ng \u0111\u1ed3ng v\u00e0 nh\u1eefng m\u1ea3nh \u0111\u1eddi c\u1ea7n gi\u00fap \u0111\u1ee1, g\u00f3p ph\u1ea7n x\u00e2y d\u1ef1ng m\u1ed9t th\u1ebf h\u1ec7 t\u01b0\u01a1ng lai kh\u1ecfe m\u1ea1nh v\u00e0 tr\u00ed tu\u1ec7.",
+        "Trở thành một quỹ cộng đồng bền và minh bạch, là cầu nối tin cậy giữa cộng đồng và những mảnh đời cần giúp đỡ, góp phần xây dựng một thế hệ tương lai khỏe mạnh và trí tuệ.",
     },
     stats: {
-      raisedLabel: "VN\u0110 \u0110\u00c3 QUY\u00caN G\u00d3P",
-      projectsCompleted: "D\u1ef1 \u00c1n Ho\u00e0n Th\u00e0nh",
-      currentHeading: "D\u1ef1 \u00c1n Hi\u1ec7n T\u1ea1i",
-      currentDescription:
-        "Qu\u1ef9 h\u1ed7 tr\u1ee3 NSA Kid - Qu\u1ea3n l\u00fd b\u1edfi NhiLe Foundation & NSA",
-      cta: "Xem chi ti\u1ebft & \u0111\u00f3ng g\u00f3p",
+      raisedLabel: "Đồng đã chi cho các em trong 12 tháng qua",
+      projectsCompleted: "Hoạt động tiêu biểu kể trên trang này",
+      source: "Nguồn: sao kê công khai của quỹ trên thiennguyen.app, lấy lúc bạn mở trang.",
+      unavailable: "Đang cập nhật",
     },
     projects: {
-      heading: "C\u00e1c D\u1ef1 \u00c1n N\u1ed5i B\u1eadt",
+      heading: "Các Dự Án Nổi Bật",
       subheading:
-        "Nh\u1eefng h\u00e0nh tr\u00ecnh y\u00eau th\u01b0\u01a1ng m\u00e0 ch\u00fang ta \u0111\u00e3 c\u00f9ng nhau th\u1ef1c hi\u1ec7n.",
+        "Những hành trình yêu thương mà chúng ta đã cùng nhau thực hiện.",
       items: [
         {
-          title: "N\u1ee5 c\u01b0\u1eddi chi\u1ebfn binh nh\u00ed",
+          title: "Nụ cười chiến binh nhí",
           description:
-            "T\u1ea1i B\u1ec7nh vi\u1ec7n Ph\u1ee5 s\u1ea3n - Nhi \u0110\u00e0 N\u1eb5ng, c\u00e1c em nh\u1ecf \u0111i\u1ec1u tr\u1ecb ung th\u01b0 v\u1eabn gi\u1eef n\u1ee5 c\u01b0\u1eddi l\u1ea1c quan, ti\u1ebfp th\u00eam s\u1ee9c m\u1ea1nh v\u00e0 ni\u1ec1m tin cho nh\u1eefng ng\u01b0\u1eddi xung quanh.",
+            "Tại Bệnh viện Phụ sản - Nhi Đà Nẵng, các em nhỏ điều trị ung thư vẫn giữ nụ cười lạc quan, tiếp thêm sức mạnh và niềm tin cho những người xung quanh.",
         },
         {
-          title: "Trao qu\u00e0, nh\u1eadn y\u00eau th\u01b0\u01a1ng",
+          title: "Trao quà, nhận yêu thương",
           description:
-            "T\u1ea1i x\u00e3 A Ting (Qu\u1ea3ng Nam), nh\u1eefng m\u00f3n qu\u00e0 nh\u1ecf mang l\u1ea1i ni\u1ec1m vui l\u1edbn cho c\u00e1c em nh\u1ecf. Kho\u1ea3nh kh\u1eafc \u00e1nh m\u1eaft v\u00e0 n\u1ee5 c\u01b0\u1eddi h\u1ed3n nhi\u00ean \u0111\u00e3 tr\u1edf th\u00e0nh m\u00f3n qu\u00e0 qu\u00fd gi\u00e1 nh\u1ea5t m\u00e0 ch\u00fang t\u00f4i nh\u1eadn l\u1ea1i sau chuy\u1ebfn \u0111i.",
+            "Tại xã A Ting (Quảng Nam), những món quà nhỏ mang lại niềm vui lớn cho các em nhỏ. Khoảnh khắc ánh mắt và nụ cười hồn nhiên đã trở thành món quà quý giá nhất mà chúng tôi nhận lại sau chuyến đi.",
         },
         {
-          title: "Mang n\u1ee5 c\u01b0\u1eddi \u0111\u1ebfn L\u00e0ng Hy V\u1ecdng",
+          title: "Mang nụ cười đến Làng Hy Vọng",
           description:
-            "NhiLe Foundation \u0111\u00e3 trao t\u1eb7ng qu\u00e0, s\u1eefa v\u00e0 d\u1ee5ng c\u1ee5 h\u1ecdc t\u1eadp cho c\u00e1c em nh\u1ecf t\u1ea1i L\u00e0ng Hy V\u1ecdng, \u0110\u00e0 N\u1eb5ng, kh\u00f4ng ch\u1ec9 mang \u0111\u1ebfn v\u1eadt ch\u1ea5t m\u00e0 c\u00f2n t\u1ea1o n\u00ean kho\u1ea3nh kh\u1eafc g\u1eafn k\u1ebft, s\u1ebb chia v\u00e0 ti\u1ebfng c\u01b0\u1eddi r\u1ea1ng r\u1ee1.",
+            "NhiLe Foundation đã trao tặng quà, sữa và dụng cụ học tập cho các em nhỏ tại Làng Hy Vọng, Đà Nẵng, không chỉ mang đến vật chất mà còn tạo nên khoảnh khắc gắn kết, sẻ chia và tiếng cười rạng rỡ.",
         },
         {
-          title: "T\u1ebft \u1ea5m no t\u1ea1i Ngh\u1ec7 An",
+          title: "Tết ấm no tại Nghệ An",
           description:
-            "NhiLe Foundation kh\u1edfi \u0111\u1ed9ng ch\u01b0\u01a1ng tr\u00ecnh T\u1ebft \u1ea5m no 2025 t\u1ea1i Trung t\u00e2m Nh\u00e2n \u0111\u1ea1o \u0110\u1ee9c L\u01b0\u01a1ng, Ngh\u1ec7 An, mang \u0111\u1ebfn n\u1ee5 c\u01b0\u1eddi, t\u00ecnh y\u00eau th\u01b0\u01a1ng v\u00e0 nh\u1eefng c\u00e1i \u00f4m \u1ea5m \u00e1p cho c\u00e1c em nh\u1ecf.",
+            "Tết 2025, NhiLe Foundation mang chương trình Tết ấm no tới Trung tâm Nhân đạo Đức Lương, Nghệ An, mang đến nụ cười, tình yêu thương và những cái ôm ấm áp cho các em nhỏ.",
         },
         {
-          title: "Trao y\u00eau th\u01b0\u01a1ng t\u1ea1i ch\u00f9a T\u1eeb H\u1ea1nh",
+          title: "Trao yêu thương tại chùa Từ Hạnh",
           description:
-            "NhiLe Team \u0111\u00e3 g\u1eedi t\u1eb7ng 55 ph\u1ea7n qu\u00e0 cho c\u00e1c em nh\u1ecf, 55 ph\u1ea7n qu\u00e0 cho c\u00e1c c\u1ee5 gi\u00e0 v\u00e0 qu\u00e0 cho c\u00e1c s\u01b0 t\u1ea1i ch\u00f9a T\u1eeb H\u1ea1nh, TP.HCM, mang \u0111\u1ebfn ni\u1ec1m vui v\u00e0 nh\u1eafc nh\u1edf ch\u00fang ta v\u1ec1 gi\u00e1 tr\u1ecb c\u1ee7a s\u1ef1 s\u1ebb chia v\u00e0 l\u00f2ng nh\u00e2n \u00e1i.",
-        },
-        {
-          title:
-            "V\u1ebd l\u1ea1i tu\u1ed5i th\u01a1 b\u1eb1ng gam m\u00e0u y\u00eau th\u01b0\u01a1ng",
-          description:
-            "NhiLe Foundation mang \u0111\u1ebfn ni\u1ec1m vui cho c\u00e1c em nh\u1ecf b\u1ecb \u1ea3nh h\u01b0\u1edfng b\u1edfi ch\u1ea5t \u0111\u1ed9c da cam, v\u1edbi nh\u1eefng ti\u1ebfng c\u01b0\u1eddi, tr\u00f2 ch\u01a1i, m\u00f3n qu\u00e0 nh\u1ecf v\u00e0 kho\u1ea3nh kh\u1eafc \u1ea5m \u00e1p \u0111\u01b0\u1ee3c v\u1ebd n\u00ean b\u1eb1ng t\u00ecnh th\u01b0\u01a1ng.",
+            "NhiLe Team đã gửi tặng 55 phần quà cho các em nhỏ, 55 phần quà cho các cụ già và quà cho các sư tại chùa Từ Hạnh, TP.HCM, mang đến niềm vui và nhắc nhở chúng ta về giá trị của sự sẻ chia và lòng nhân ái.",
         },
         {
           title:
-            "Gh\u00e9 th\u0103m ng\u00f4i tr\u01b0\u1eddng \u0111\u1eb7c bi\u1ec7t \u1edf \u0110\u00e0 N\u1eb5ng",
+            "Vẽ lại tuổi thơ bằng gam màu yêu thương",
           description:
-            "NhiLe Foundation \u0111\u1ebfn th\u0103m tr\u01b0\u1eddng d\u00e0nh cho c\u00e1c em nh\u1ecf b\u1ecb \u1ea3nh h\u01b0\u1edfng b\u1edfi ch\u1ea5t \u0111\u1ed9c da cam, mang theo qu\u00e0 t\u1eb7ng v\u00e0 tr\u00f2 ch\u01a1i, nh\u1eadn l\u1ea1i nh\u1eefng n\u1ee5 c\u01b0\u1eddi, \u00e1nh m\u1eaft h\u00e1o h\u1ee9c c\u00f9ng kho\u1ea3nh kh\u1eafc \u1ea5m \u00e1p kh\u00f3 qu\u00ean.",
+            "NhiLe Foundation mang đến niềm vui cho các em nhỏ bị ảnh hưởng bởi chất độc da cam, với những tiếng cười, trò chơi, món quà nhỏ và khoảnh khắc ấm áp được vẽ nên bằng tình thương.",
         },
         {
-          title: "T\u00ecm l\u1ea1i y\u00eau th\u01b0\u01a1ng qua s\u1ebb chia",
+          title:
+            "Ghé thăm ngôi trường đặc biệt ở Đà Nẵng",
           description:
-            "C\u1ed1ng hi\u1ebfn cho c\u1ed9ng \u0111\u1ed3ng v\u00e0 tham gia c\u00e1c ho\u1ea1t \u0111\u1ed9ng t\u1eeb thi\u1ec7n c\u00f9ng NhiLe Foundation kh\u00f4ng ch\u1ec9 mang \u0111\u1ebfn ni\u1ec1m vui cho nh\u1eefng m\u1ea3nh \u0111\u1eddi k\u00e9m may m\u1eafn m\u00e0 c\u00f2n gi\u00fap ch\u00fang ta t\u00ecm l\u1ea1i s\u1ef1 k\u1ebft n\u1ed1i v\u00e0 y\u00eau th\u01b0\u01a1ng trong cu\u1ed9c s\u1ed1ng.",
+            "NhiLe Foundation đến thăm trường dành cho các em nhỏ bị ảnh hưởng bởi chất độc da cam, mang theo quà tặng và trò chơi, nhận lại những nụ cười, ánh mắt háo hức cùng khoảnh khắc ấm áp khó quên.",
         },
         {
-          title: "N\u1ee5 c\u01b0\u1eddi t\u1ea1i L\u00e0ng Hy V\u1ecdng",
+          title: "Tìm lại yêu thương qua sẻ chia",
           description:
-            "T\u1ea1i L\u00e0ng Hy V\u1ecdng, NhiLe Foundation mang \u0111\u1ebfn nh\u1eefng ph\u1ea7n qu\u00e0 cho c\u00e1c em nh\u1ecf khi\u1ebfm th\u00ednh v\u00e0 khuy\u1ebft t\u1eadt, nh\u1eadn l\u1ea1i nh\u1eefng c\u00e1i \u00f4m, \u00e1nh m\u1eaft s\u00e1ng r\u1ee1 c\u00f9ng n\u1ee5 c\u01b0\u1eddi h\u1ed3n nhi\u00ean \u0111\u1ea7y \u1ea5m \u00e1p.",
+            "Cống hiến cho cộng đồng và tham gia các hoạt động từ thiện cùng NhiLe Foundation không chỉ mang đến niềm vui cho những mảnh đời kém may mắn mà còn giúp chúng ta tìm lại sự kết nối và yêu thương trong cuộc sống.",
+        },
+        {
+          title: "Nụ cười tại Làng Hy Vọng",
+          description:
+            "Tại Làng Hy Vọng, NhiLe Foundation mang đến những phần quà cho các em nhỏ khiếm thính và khuyết tật, nhận lại những cái ôm, ánh mắt sáng rỡ cùng nụ cười hồn nhiên đầy ấm áp.",
         },
       ],
-      cta: "Xem chi ti\u1ebft",
+      cta: "Xem chi tiết",
     },
     callToAction: {
-      heading: "Chung Tay C\u00f9ng Ch\u00fang T\u00f4i",
+      heading: "Chung Tay Cùng Chúng Tôi",
       description:
-        "M\u1ed7i h\u00e0nh \u0111\u1ed9ng c\u1ee7a b\u1ea1n \u0111\u1ec1u c\u00f3 s\u1ee9c m\u1ea1nh thay \u0111\u1ed5i m\u1ed9t cu\u1ed9c \u0111\u1eddi. H\u00e3y ch\u1ecdn c\u00e1ch b\u1ea1n mu\u1ed1n \u0111\u1ed3ng h\u00e0nh c\u00f9ng NhiLe Foundation.",
-      donate: "Quy\u00ean G\u00f3p Ngay",
-      volunteer: "Tr\u1edf Th\u00e0nh T\u00ecnh Nguy\u1ec7n Vi\u00ean",
+        "Mỗi hành động của bạn đều có sức mạnh thay đổi một cuộc đời. Hãy chọn cách bạn muốn đồng hành cùng NhiLe Foundation.",
+      donate: "Ủng hộ quỹ",
+      volunteer: "Muốn góp sức? Để lại lời nhắn cho quỹ",
     },
     transparency: {
-      heading: "Minh B\u1ea1ch L\u00e0 N\u1ec1n T\u1ea3ng C\u1ee7a Ni\u1ec1m Tin",
+      heading: "Minh Bạch Là Nền Tảng Của Niềm Tin",
       description:
-        "Ch\u00fang t\u00f4i cam k\u1ebft c\u00f4ng khai m\u1ecdi ho\u1ea1t \u0111\u1ed9ng thu chi. To\u00e0n b\u1ed9 sao k\u00ea v\u00e0 b\u00e1o c\u00e1o t\u00e0i ch\u00ednh \u0111\u1ec1u \u0111\u01b0\u1ee3c c\u1eadp nh\u1eadt v\u00e0 x\u00e1c th\u1ef1c qua C\u1ed5ng th\u00f4ng tin \u0111i\u1ec7n t\u1eed nh\u00e2n \u0111\u1ea1o qu\u1ed1c gia.",
-      badgeTitle: "Sao K\u00ea Minh B\u1ea1ch",
+        "Chúng tôi cam kết công khai mọi hoạt động thu chi. Toàn bộ sao kê được công khai trên Thiện Nguyện (thiennguyen.app). Bảng dưới đây lấy thẳng từ đó.",
+      legalTitle: "Quỹ đứng tên ai",
+      legalBody:
+        "NhiLe Foundation là quỹ cộng đồng của NhiLe, lập năm 2021. Quỹ chưa phải pháp nhân riêng: tài khoản nhận tiền đứng tên cá nhân, và mọi giao dịch hiện trên sao kê công khai ở Thiện Nguyện. Khoảng 20% lợi nhuận của NhiLe được góp vào quỹ.",
+      badgeTitle: "Sao Kê Minh Bạch",
       badgeDescription:
-        "M\u1ecdi kho\u1ea3n \u0111\u00f3ng g\u00f3p c\u1ee7a b\u1ea1n \u0111\u1ec1u \u0111\u01b0\u1ee3c ghi nh\u1eadn v\u00e0 c\u00f4ng khai tr\u00ean h\u1ec7 th\u1ed1ng c\u1ee7a C\u1ed5ng th\u00f4ng tin \u0111i\u1ec7n t\u1eed nh\u00e2n \u0111\u1ea1o qu\u1ed1c gia.",
-      badgeCta: "Xem Sao K\u00ea tr\u00ean thiennguyen.app",
+        "Mọi khoản đóng góp vào tài khoản quỹ đều hiện trên sao kê công khai của Thiện Nguyện (thiennguyen.app). Bạn tự kiểm được từng dòng.",
+      badgeCta: "Xem Sao Kê trên thiennguyen.app",
     },
     contact: {
-      title: "Li\u00ean H\u1ec7",
-      subtitle: "H\u00e3y k\u1ebft n\u1ed1i v\u1edbi ch\u00fang t\u00f4i \u0111\u1ec3 c\u00f9ng nhau lan t\u1ecfa y\u00eau th\u01b0\u01a1ng",
+      title: "Liên Hệ",
+      subtitle: "Hãy kết nối với chúng tôi để cùng nhau lan tỏa yêu thương",
       email: "Email",
-      address: "Minh b\u1ea1ch t\u00e0i ch\u00ednh",
-      mapTitle: "B\u1ea3n \u0111\u1ed3",
-      getInTouch: "Li\u00ean h\u1ec7 v\u1edbi ch\u00fang t\u00f4i",
-      sendMessage: "G\u1eedi tin nh\u1eafn",
-      name: "H\u1ecd v\u00e0 t\u00ean",
-      message: "Tin nh\u1eafn",
-      send: "G\u1eedi",
+      address: "Minh bạch tài chính",
+      mapTitle: "Bản đồ",
+      getInTouch: "Liên hệ với chúng tôi",
+      sendMessage: "Gửi tin nhắn",
+      name: "Họ và tên",
+      message: "Tin nhắn",
+      send: "Gửi",
     },
     footer: {
-      tagline: "Tr\u00e1i tim c\u1ee7a h\u1ec7 sinh th\u00e1i NhiLe Holding.",
-      copyright: "\u00a9 NhiLe Foundation \u00b7 T\u1eeb 2020. Gi\u1eef m\u1ecdi quy\u1ec1n.",
+      tagline: "Trái tim của hệ sinh thái NhiLe Holding.",
+      copyright: "© NhiLe Foundation · Từ 2021.",
     },
   },
   en: {
@@ -157,25 +158,23 @@ const translations = {
     hero: {
       title: "Spreading Love, Empowering Futures",
       subtitle:
-        "Every contribution, no matter how small, helps create life-changing opportunities for children facing hardship.",
-      cta: "Take Action Together",
+        "NhiLe Foundation is NhiLe's community fund, started in 2021. We bring school supplies, milk, gifts and play days to children facing hardship in Vietnam. Every donation and every expense is on a public bank statement.",
+      cta: "Support the fund",
     },
     about: {
       title: "Mission & Vision",
       missionTitle: "Mission:",
       mission:
-        "NhiLe Foundation was established to support and create holistic development opportunities for children in vulnerable situations across Vietnam, focusing on education, healthcare, and nutrition.",
+        "NhiLe Foundation started in 2021 to support and create holistic development opportunities for children in vulnerable situations across Vietnam, focusing on education, healthcare, and nutrition.",
       visionTitle: "Vision:",
       vision:
-        "To become a resilient, transparent organisation that connects supporters with families in need, helping nurture a healthy and well-educated future generation.",
+        "To be a lasting, transparent community fund that connects supporters with families in need, helping nurture a healthy and well-educated future generation.",
     },
     stats: {
-      raisedLabel: "VND Raised",
-      projectsCompleted: "Projects Completed",
-      currentHeading: "Current Campaign",
-      currentDescription:
-        "NSA Kid Support Fund \u2013 Managed by NhiLe Foundation & NSA",
-      cta: "View details & donate",
+      raisedLabel: "VND spent on children in the last 12 months",
+      projectsCompleted: "Featured activities on this page",
+      source: "Source: the fund's public statement on thiennguyen.app, fetched when you open this page.",
+      unavailable: "Updating",
     },
     projects: {
       heading: "Featured Initiatives",
@@ -199,7 +198,7 @@ const translations = {
         {
           title: "A Warm Tet in Nghe An",
           description:
-            "We launched the Warm Tet 2025 program at Duc Luong Humanitarian Center, bringing hugs, love, and festive warmth to children in Nghe An.",
+            "For Tet 2025, we brought the Warm Tet program to Duc Luong Humanitarian Center, with hugs, love, and festive warmth to children in Nghe An.",
         },
         {
           title: "Sharing Love at Tu Hanh Pagoda",
@@ -233,17 +232,20 @@ const translations = {
       heading: "Join Hands With Us",
       description:
         "Every action you take can transform a life. Choose how you want to walk alongside NhiLe Foundation.",
-      donate: "Donate Now",
-      volunteer: "Become a Volunteer",
+      donate: "Support the fund",
+      volunteer: "Want to help? Leave us a message",
     },
     transparency: {
       heading: "Transparency Builds Trust",
       description:
-        "We are committed to full financial transparency. All statements and reports are updated and verified via the National Humanitarian Information Portal.",
-      badgeTitle: "Transparency Star Ledger",
+        "We publish every donation and every expense. The full bank statement is public on Thien Nguyen (thiennguyen.app), and the table below is pulled straight from it.",
+      legalTitle: "Who holds the fund",
+      legalBody:
+        "NhiLe Foundation is NhiLe's community fund, started in 2021. It is not yet a separate legal entity: the receiving account is held by an individual, and every transaction appears on the public statement on Thien Nguyen. About 20% of NhiLe's profit goes into the fund.",
+      badgeTitle: "Public bank statement",
       badgeDescription:
-        "Every contribution you make is recorded and published on the National Humanitarian Information Portal.",
-      badgeCta: "View ledger on thiennguyen.app",
+        "Every transfer into the fund's account shows up on its public statement on Thien Nguyen (thiennguyen.app). You can check each line yourself.",
+      badgeCta: "View statement on thiennguyen.app",
     },
     contact: {
       title: "Contact",
@@ -259,7 +261,7 @@ const translations = {
     },
     footer: {
       tagline: "The heart of the NhiLe Holding ecosystem.",
-      copyright: "\u00a9 NhiLe Foundation \u00b7 Since 2020. All rights reserved.",
+      copyright: "© NhiLe Foundation · Since 2021.",
     },
   },
 } as const;
@@ -287,6 +289,12 @@ export const LanguageProvider = ({ children }: { children: ReactNode }) => {
       window.localStorage.setItem(STORAGE_KEY, value);
     }
   };
+
+  useEffect(() => {
+    if (typeof document !== "undefined") {
+      document.documentElement.lang = language;
+    }
+  }, [language]);
 
   const value = useMemo<LanguageContextValue>(
     () => ({

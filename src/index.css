@@ -6,6 +6,11 @@
 
 /* Design system: NLH tokens (src/styles/nlh/nlh-tokens.css). No colours are defined here. */
 
+/* nlf has no brand slot of its own in the shared tokens yet: reuse the colour
+   slot it has always used, so the look does not change (palette still pending in SO-CHUAN). */
+[data-brand="nlf"] { --action: var(--brand-nlt); --action-on: var(--brand-nlt-on); --action-ink: var(--brand-nlt-ink); }
+[data-theme="dark"][data-brand="nlf"] { --action: var(--brand-nlt-dark); --action-on: var(--brand-nlt-dark-on); --action-ink: var(--brand-nlt-dark); }
+
 @layer base {
   * {
     @apply border-border;
