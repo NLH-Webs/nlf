@@ -10,6 +10,14 @@
     gtag('js', new Date());
 
     gtag('config', 'G-WQXXJ7EKCJ');
+    // Measure the page's one job: opening the public statement, plus donate clicks and leads.
+    document.addEventListener('click', function (e) {
+      var a = e.target && e.target.closest ? e.target.closest('a[href*="thiennguyen.app"]') : null;
+      if (!a) return;
+      var where = (a.closest('section,footer,header') || {}).id || 'footer';
+      gtag('event', /tab=TRANSACTIONS/.test(a.href) ? 'open_statement' : 'donate_click', { link_location: where });
+    });
+    window.addEventListener('nlh-lead', function () { gtag('event', 'generate_lead', { site: 'nlf' }); });
   </script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />

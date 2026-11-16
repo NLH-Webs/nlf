@@ -6,10 +6,24 @@
 
 /* Design system: NLH tokens (src/styles/nlh/nlh-tokens.css). No colours are defined here. */
 
-/* nlf has no brand slot of its own in the shared tokens yet: reuse the colour
-   slot it has always used, so the look does not change (palette still pending in SO-CHUAN). */
-[data-brand="nlf"] { --action: var(--brand-nlt); --action-on: var(--brand-nlt-on); --action-ink: var(--brand-nlt-ink); }
-[data-theme="dark"][data-brand="nlf"] { --action: var(--brand-nlt-dark); --action-on: var(--brand-nlt-dark-on); --action-ink: var(--brand-nlt-dark); }
+/* nlf palette: NhiLe Brand Guide v3.0 (đen #0D0D0D, đỏ thẫm #8B1A1A, vàng kim #B7860B,
+   vàng sáng #E8C070, kem #F8F4EE), 60·20·20. Đỏ thẫm (--action) is reserved for the ONE
+   primary button per screen. Gold is decoration only on light backgrounds (2.98:1 on kem). */
+[data-brand="nlf"] {
+  --nlf-ink: #0D0D0D;
+  --nlf-crimson: #8B1A1A;
+  --nlf-gold: #B7860B;
+  --nlf-gold-light: #E8C070;
+  --nlf-cream: #F8F4EE;
+  --action: var(--nlf-crimson);
+  --action-on: #FFFFFF;
+  --action-ink: var(--nlf-crimson);
+  --bg-base: var(--nlf-cream);
+  --bg-sunken: #F1EADF;
+  --bg-raised: #FFFFFF;
+  --text-primary: var(--nlf-ink);
+  --text-secondary: #4A4540;
+}
 
 @layer base {
   * {
@@ -28,12 +42,20 @@
     background: var(--bg-sunken);
   }
   
-  .charity-text-gradient {
-    background: var(--action);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+  .nlf-gold-rule {
+    display: block;
+    width: 3rem;
+    height: 3px;
+    background: var(--nlf-gold);
   }
+  .nlf-link {
+    color: var(--nlf-ink);
+    text-decoration: underline;
+    text-decoration-color: var(--nlf-gold);
+    text-decoration-thickness: 2px;
+    text-underline-offset: 4px;
+  }
+  .nlf-link:hover { text-decoration-color: var(--nlf-ink); }
   
   .backdrop-blur-custom {
     backdrop-filter: blur(16px);

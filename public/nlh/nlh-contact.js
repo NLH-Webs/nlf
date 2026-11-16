@@ -167,6 +167,14 @@ button,.btn{font:inherit;font-weight:600;font-size:var(--size-body,17px);min-hei
         website: el('input', { name: 'website', tabindex: '-1', autocomplete: 'off' })
       };
       var i = this.in;
+      // compact: three boxes only (name, email-or-phone, message). Opt-in per site.
+      this.compact = this.hasAttribute('compact');
+      if (this.compact) {
+        i.contact = el('input', { name: 'contact', autocomplete: 'email', required: '' });
+        f.appendChild(field(t.name + ' *', i.name, 'full'));
+        f.appendChild(field((this.lg === 'vi' ? 'Email hoặc số điện thoại' : 'Email or phone') + ' *', i.contact, 'full'));
+        f.appendChild(field(t.message, i.message, 'full'));
+      } else {
       f.appendChild(field(t.name + ' *', i.name, 'full'));
       f.appendChild(field(t.email, i.email));
       f.appendChild(el('label', {}, [document.createTextNode(t.phone), el('div', { class: 'phone' }, [i.code, i.phone])]));
@@ -177,6 +185,7 @@ button,.btn{font:inherit;font-weight:600;font-size:var(--size-body,17px);min-hei
       f.appendChild(field(t.org, i.org));
       f.appendChild(field(t.bestTime, i.bestTime));
       f.appendChild(field(t.message, i.message, 'full'));
+      }
       f.appendChild(el('label', { class: 'consent full' }, [i.consent, document.createTextNode(t.consent)]));
       f.appendChild(el('div', { class: 'hp', 'aria-hidden': 'true' }, [i.website]));
       this.errEl = el('p', { class: 'err', role: 'alert' });
@@ -194,7 +203,12 @@ button,.btn{font:inherit;font-weight:600;font-size:var(--size-body,17px);min-hei
     }
 
     values() {
-      var i = this.in, phone = i.phone.value.trim();
+      var i = this.in;
+      if (i.contact) {
+        var c = i.contact.value.trim();
+        if (c.indexOf('@') > -1) { i.email.value = c; i.phone.value = ''; } else { i.email.value = ''; i.phone.value = c; }
+      }
+      var phone = i.phone.value.trim();
       if (phone && phone.charAt(0) !== '+') phone = i.code.value + ' ' + phone.replace(/^0+/, '');
       var ss = function (k) { try { return sessionStorage.getItem('nlh_' + k) || ''; } catch (e) { return ''; } };
       return {
@@ -270,7 +284,7 @@ button,.btn{font:inherit;font-weight:600;font-size:var(--size-body,17px);min-hei
     saveDraft() {
       try {
         var i = this.in, d = {};
-        ['name', 'email', 'phone', 'org', 'bestTime', 'message'].forEach(function (k) { d[k] = i[k].value; });
+        ['name', 'email', 'phone', 'org', 'bestTime', 'message', 'contact'].forEach(function (k) { if (i[k]) d[k] = i[k].value; });
         localStorage.setItem(this.draftKey, JSON.stringify(d));
       } catch (e) {}
     }

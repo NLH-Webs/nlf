@@ -1,102 +1,61 @@
-import pj1 from "@/assets/project-1.jpg";
-import pj2 from "@/assets/project-2.jpg";
-import pj3 from "@/assets/project-3.jpg";
-import pj4 from "@/assets/project-4.jpg";
-import pj5 from "@/assets/project-5.jpg";
-import pj6 from "@/assets/project-6.jpg";
-import pj7 from "@/assets/project-7.jpg";
-import pj8 from "@/assets/project-8.jpg";
-import pj9 from "@/assets/project-9.jpg";
+import handsSnack from "@/assets/hands-snack.jpg";
 import { useTranslations } from "@/contexts/language-context";
-import { ArrowRight } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 
-const projectAssets = [
-  {
-    image: pj1,
-    link: "https://www.facebook.com/nlf.sg/posts/pfbid024XqkqaGw1TxC14vSHiKDsq5PFMfWtSFuaHLrEECHTPamjJAszyZmpKsGrZGw2xkUl",
-  },
-  {
-    image: pj2,
-    link: "https://www.facebook.com/nlf.sg/posts/pfbid02EWKwZ778akS7K5NZMAbNTMAXYjaP4JSsUNdQq9Ejom7VkjeUffy5ZihMkFCnt6avl",
-  },
-  {
-    image: pj3,
-    link: "https://www.facebook.com/nlf.sg/posts/pfbid02cW7t3SHDxMumPuRk41n1PZT6Wh1qXosRK1XfFFygqGsBtJgN9gJWFhTtT8VZKG2rl",
-  },
-  {
-    image: pj4,
-    link: "https://www.facebook.com/nlf.sg/posts/pfbid0YSSnrY6qomanumz5f15ni7WT9cu9pEq27Dr34NRzHK1ErTvxee7CG6NThq9fPmTkl",
-  },
-  {
-    image: pj5,
-    link: "https://www.facebook.com/nlf.sg/posts/pfbid0KAWn5jDioHAT8fBGA6oxCfoYxDzyLYqXehEQJKHs6cfPQhwzGGoDdNutSRufvvzEl",
-  },
-  {
-    image: pj6,
-    link: "https://www.facebook.com/nlf.sg/posts/pfbid09piuRXctzqpNqEBtjriLFb54igGBQyQej83YwSb9joYnkgBiRZYZAmkXiewT1qKml",
-  },
-  {
-    image: pj7,
-    link: "https://www.facebook.com/nlf.sg/posts/pfbid0ECdtSjNuTT3zsZ8PSNJ4HbVcAUuPq1D4PKnrS2pUfRRXAHbXzqJ3yzGSuXAxfET1l",
-  },
-  {
-    image: pj8,
-    link: "https://www.facebook.com/nlf.sg/posts/pfbid02vU6NpKr3NPhKTgMRFFoaH1hmEhRcTwSJbrz23HZYGsm3S2jnNjTWdocYbbdEqCk2l",
-  },
-  {
-    image: pj9,
-    link: "https://www.facebook.com/nlf.sg/posts/pfbid02hNRn2ZujdWL6r7p3mAcwGB4r39GCbbMpmRCPb91H6jVSxfYpAu7jRLUvuPZ7ah5Gl",
-  },
+// Photos of children stay on the fund's own Facebook posts until parents' consent is
+// confirmed for this site; here we only show a photo where no face is visible.
+const projectLinks = [
+  "https://www.facebook.com/nlf.sg/posts/pfbid024XqkqaGw1TxC14vSHiKDsq5PFMfWtSFuaHLrEECHTPamjJAszyZmpKsGrZGw2xkUl",
+  "https://www.facebook.com/nlf.sg/posts/pfbid02EWKwZ778akS7K5NZMAbNTMAXYjaP4JSsUNdQq9Ejom7VkjeUffy5ZihMkFCnt6avl",
+  "https://www.facebook.com/nlf.sg/posts/pfbid02cW7t3SHDxMumPuRk41n1PZT6Wh1qXosRK1XfFFygqGsBtJgN9gJWFhTtT8VZKG2rl",
+  "https://www.facebook.com/nlf.sg/posts/pfbid0YSSnrY6qomanumz5f15ni7WT9cu9pEq27Dr34NRzHK1ErTvxee7CG6NThq9fPmTkl",
+  "https://www.facebook.com/nlf.sg/posts/pfbid0KAWn5jDioHAT8fBGA6oxCfoYxDzyLYqXehEQJKHs6cfPQhwzGGoDdNutSRufvvzEl",
+  "https://www.facebook.com/nlf.sg/posts/pfbid09piuRXctzqpNqEBtjriLFb54igGBQyQej83YwSb9joYnkgBiRZYZAmkXiewT1qKml",
+  "https://www.facebook.com/nlf.sg/posts/pfbid0ECdtSjNuTT3zsZ8PSNJ4HbVcAUuPq1D4PKnrS2pUfRRXAHbXzqJ3yzGSuXAxfET1l",
+  "https://www.facebook.com/nlf.sg/posts/pfbid02vU6NpKr3NPhKTgMRFFoaH1hmEhRcTwSJbrz23HZYGsm3S2jnNjTWdocYbbdEqCk2l",
+  "https://www.facebook.com/nlf.sg/posts/pfbid02hNRn2ZujdWL6r7p3mAcwGB4r39GCbbMpmRCPb91H6jVSxfYpAu7jRLUvuPZ7ah5Gl",
 ] as const;
 
 const ProjectsSection = () => {
   const { projects } = useTranslations();
 
   return (
-    <section id="projects" className="bg-slate-100 py-20 md:py-28">
-      <div className="container mx-auto px-6">
-        <div className="mb-16 text-center">
-          <h2 className="mb-3 text-3xl font-bold md:text-4xl">
-            {projects.heading}
-          </h2>
-          <p className="mx-auto max-w-2xl text-slate-600">
-            {projects.subheading}
-          </p>
+    <section id="projects" className="bg-secondary py-14 md:py-20">
+      <div className="container mx-auto px-4 md:px-6">
+        <div className="mb-10 grid items-end gap-6 md:grid-cols-[1fr_280px]">
+          <div>
+            <span className="nlf-gold-rule mb-4" aria-hidden="true" />
+            <h2 className="font-display text-2xl font-bold text-slate-900 md:text-4xl">{projects.heading}</h2>
+            <p className="mt-2 max-w-2xl text-slate-700">{projects.subheading}</p>
+          </div>
+          <img
+            src={handsSnack}
+            alt={projects.imageAlt}
+            width={434}
+            height={572}
+            loading="lazy"
+            className="hidden h-56 w-full rounded-2xl object-cover shadow md:block"
+          />
         </div>
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-          {projectAssets.map((project, index) => {
-            const projectCopy = projects.items[index];
-            if (!projectCopy) {
-              return null;
-            }
-            return (
-              <div
-                key={project.link}
-                className="transform overflow-hidden rounded-xl bg-background shadow-lg transition-transform hover:-translate-y-2"
+
+        {/* F pattern: short title first, then at most two sentences, then one link. */}
+        <ol className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+          {projects.items.map((item, index) => (
+            <li key={projectLinks[index]} className="flex flex-col rounded-xl bg-card p-5 shadow-sm">
+              <h3 className="text-lg font-semibold text-slate-900">{item.title}</h3>
+              <p className="mt-2 flex-1 text-sm text-slate-700">{item.description}</p>
+              <a
+                href={projectLinks[index]}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="nlf-link mt-4 inline-flex items-center gap-1 text-sm font-medium"
               >
-                <img
-                  src={project.image}
-                  alt={projectCopy.title}
-                  loading="lazy"
-                  className="h-48 w-full object-cover"
-                />
-                <div className="p-6">
-                  <h3 className="mb-2 text-xl font-bold">{projectCopy.title}</h3>
-                  <p className="mb-4 text-slate-600">{projectCopy.description}</p>
-                  <a
-                    href={project.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="group inline-flex items-center gap-2 font-semibold text-primary transition-colors hover:text-primary-dark"
-                  >
-                    {projects.cta}
-                    <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-                  </a>
-                </div>
-              </div>
-            );
-          })}
-        </div>
+                {projects.cta}
+                <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
+              </a>
+            </li>
+          ))}
+        </ol>
       </div>
     </section>
   );
