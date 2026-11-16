@@ -27,3 +27,5 @@ export const API_ENDPOINTS = {
 export const BANK_ACCOUNT_ID = '8711';
 // One donation destination for the whole site: the fund's public page on Thiện Nguyện.
 export const DONATE_URL = 'https://thiennguyen.app/user/nhilefoundation';
+// Official public statement link (sent by chị Nhi 16/11/2026).
+export const STATEMENT_URL = 'https://thiennguyen.app/user/nhilefoundation?tab=TRANSACTIONS';

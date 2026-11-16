@@ -49,12 +49,12 @@ const ContactSection = () => {
                     {contact.address}
                   </h3>
                   <a
-                    href="https://thiennguyen.app/user/nhilefoundation"
+                    href="https://thiennguyen.app/user/nhilefoundation?tab=TRANSACTIONS"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-primary hover:underline"
                   >
-                    thiennguyen.app/user/nhilefoundation
+                    {contact.statementLink}
                   </a>
                 </div>
               </div>

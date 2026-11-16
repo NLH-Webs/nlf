@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
 import { useLanguage, useTranslations } from "@/contexts/language-context";
-import { API_ENDPOINTS, BANK_ACCOUNT_ID } from "@/config/api";
+import { API_ENDPOINTS, BANK_ACCOUNT_ID, STATEMENT_URL } from "@/config/api";
 import { TransactionResponse } from "@/types/transaction";
 
 const StatsSection = () => {
@@ -75,7 +75,9 @@ const StatsSection = () => {
             <p className="mt-2 text-slate-600">{stats.raisedLabel}</p>
             <p className="mt-1 text-xs text-slate-500">
               <a
-                href="#transparency"
+                href={STATEMENT_URL}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="underline underline-offset-4 hover:text-slate-700"
               >
                 {stats.source}
