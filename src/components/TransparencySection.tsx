@@ -23,18 +23,18 @@ import { Badge } from "@/components/ui/badge";
 import { Calendar as CalendarComponent } from "@/components/ui/calendar";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { useToast } from "@/hooks/use-toast";
 import { useTranslations, useLanguage } from "@/contexts/language-context";
-import { API_ENDPOINTS, BANK_ACCOUNT_ID } from "@/config/api";
+import { API_ENDPOINTS, BANK_ACCOUNT_ID, DONATE_URL } from "@/config/api";
+import { maskName } from "@/lib/mask";
 import { Transaction, TransactionResponse, TransactionFilters } from "@/types/transaction";
 
 const TransparencySection = () => {
-  const { transparency } = useTranslations();
+  const { transparency, stats } = useTranslations();
   const { language } = useLanguage();
-  const { toast } = useToast();
   
   const [transactions, setTransactions] = useState<Transaction[]>([]);
   const [loading, setLoading] = useState(false);
+  const [failed, setFailed] = useState(false);
   const [accountBalance, setAccountBalance] = useState<number | null>(null);
   const [totalCredit, setTotalCredit] = useState(0);
   const [totalDebit, setTotalDebit] = useState(0);
@@ -71,9 +71,9 @@ const TransparencySection = () => {
 
   const fetchTransactions = async () => {
     setLoading(true);
+    setFailed(false);
     try {
       const url = API_ENDPOINTS.BANK_TRANSACTIONS(BANK_ACCOUNT_ID, filters);
-      console.log('Fetching transactions from:', url);
       
       const response = await fetch(url, {
         method: 'GET',
@@ -111,24 +111,12 @@ const TransparencySection = () => {
           setTotalPages(data.data.pageNumber);
         }
         
-        console.log('API Response:', {
-          accountBalance: data.data.accountBalance,
-          totalCredit: data.data.totalCredit,
-          totalDebit: data.data.totalDebit,
-          calculatedBalance: data.data.accountBalance !== null ? data.data.accountBalance : (data.data.totalCredit - data.data.totalDebit)
-        });
       } else {
         throw new Error(data.error || 'Unknown error');
       }
     } catch (error) {
       console.error('Error fetching transactions:', error);
-      toast({
-        title: language === 'vi' ? 'Lỗi' : 'Error',
-        description: language === 'vi'
-          ? `Không thể tải dữ liệu giao dịch: ${error instanceof Error ? error.message : 'Lỗi không xác định'}. Vui lòng thử lại.`
-          : `Failed to load transaction data: ${error instanceof Error ? error.message : 'Unknown error'}. Please try again.`,
-        variant: 'destructive',
-      });
+      setFailed(true);
       
       // Set empty state on error
       setTransactions([]);
@@ -222,9 +210,15 @@ const TransparencySection = () => {
           </p>
         </div>
 
-        {/* Independent verification source — thiennguyen.app (Cổng thông tin điện tử nhân đạo quốc gia) */}
+        {/* Who holds the fund (SO-CHUAN, chốt 16/11/2026) */}
+        <div className="mx-auto mb-6 max-w-3xl rounded-2xl border border-slate-200 bg-slate-50 p-6 text-left">
+          <h3 className="mb-2 font-semibold text-foreground">{transparency.legalTitle}</h3>
+          <p className="text-sm text-slate-600">{transparency.legalBody}</p>
+        </div>
+
+        {/* Public statement on thiennguyen.app */}
         <a
-          href="https://thiennguyen.app/user/nhilefoundation"
+          href={DONATE_URL}
           target="_blank"
           rel="noopener noreferrer"
           className="mx-auto mb-10 flex max-w-3xl flex-col items-center gap-4 rounded-2xl border border-primary/30 bg-primary/5 p-6 text-center transition hover:border-primary/60 hover:bg-primary/10 sm:flex-row sm:text-left"
@@ -251,9 +245,9 @@ const TransparencySection = () => {
             </CardHeader>
             <CardContent>
               <div className="text-2xl font-bold">
-                {formatCurrency(calculatedBalance)}
+                {failed ? stats.unavailable : formatCurrency(calculatedBalance)}
               </div>
-              {accountBalance === null && (
+              {accountBalance === null && !failed && (
                 <div className="text-xs text-muted-foreground mt-1">
                   {language === 'vi' ? '(Tính từ Thu - Chi)' : '(Calculated from Income - Expenses)'}
                 </div>
@@ -270,7 +264,7 @@ const TransparencySection = () => {
             </CardHeader>
             <CardContent>
               <div className="text-2xl font-bold text-green-600">
-                {formatCurrency(totalCredit)}
+                {failed ? stats.unavailable : formatCurrency(totalCredit)}
               </div>
             </CardContent>
           </Card>
@@ -284,7 +278,7 @@ const TransparencySection = () => {
             </CardHeader>
             <CardContent>
               <div className="text-2xl font-bold text-red-600">
-                {formatCurrency(totalDebit)}
+                {failed ? stats.unavailable : formatCurrency(totalDebit)}
               </div>
             </CardContent>
           </Card>
@@ -423,7 +417,14 @@ const TransparencySection = () => {
                     {transactions.length === 0 ? (
                       <TableRow>
                         <TableCell colSpan={6} className="text-center py-8">
-                          {language === 'vi' ? 'Không có giao dịch nào' : 'No transactions found'}
+                          {failed ? (
+                            <>
+                              {language === 'vi'
+                                ? 'Chưa tải được sao kê lúc này. Bạn xem trực tiếp trên '
+                                : "We couldn't load the statement right now. See it directly on "}
+                              <a href={DONATE_URL} target="_blank" rel="noopener noreferrer" className="text-primary underline">thiennguyen.app</a>
+                            </>
+                          ) : language === 'vi' ? 'Không có giao dịch nào' : 'No transactions found'}
                         </TableCell>
                       </TableRow>
                     ) : (
@@ -441,13 +442,15 @@ const TransparencySection = () => {
                             </Badge>
                           </TableCell>
                           <TableCell>
-                            {transaction.otherAccountDisplayName}
+                            {maskName(transaction.otherAccountDisplayName)}
                           </TableCell>
                           <TableCell className={transaction.type === 'CREDIT' ? 'text-green-600' : 'text-red-600'}>
                             {formatCurrency(transaction.transactionAmount)}
                           </TableCell>
                           <TableCell className="max-w-xs truncate">
-                            {transaction.narrative}
+                            {transaction.type === 'CREDIT'
+                              ? (language === 'vi' ? 'Ủng hộ quỹ' : 'Donation')
+                              : transaction.narrative}
                           </TableCell>
                         </TableRow>
                       ))

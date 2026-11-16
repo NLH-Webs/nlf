@@ -11,6 +11,7 @@ const AboutSection = () => {
           <img
             src={missionImage}
             alt={about.title}
+            loading="lazy"
             className="h-[450px] w-full rounded-xl object-cover shadow-xl"
           />
         </div>
