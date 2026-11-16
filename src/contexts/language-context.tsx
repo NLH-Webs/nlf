@@ -123,7 +123,7 @@ const translations = {
       emailLabel: "Hoặc email",
       statementLink: "Sao kê công khai trên Thiện Nguyện",
       okTitle: "Quỹ đã nhận lời nhắn của bạn",
-      okBody: "Cảm ơn bạn. Mã của bạn là {id}. Quỹ sẽ liên hệ lại trong 24 giờ, qua kênh bạn chọn.",
+      okBody: "Cảm ơn bạn. Mã của bạn là {id}. Quỹ sẽ liên hệ lại trong 1–2 ngày làm việc, qua kênh bạn chọn.",
       nextLabel: "Trong lúc chờ, xem sao kê công khai",
     },
     footer: {
@@ -235,7 +235,7 @@ const translations = {
       emailLabel: "Or email",
       statementLink: "Public statement on Thien Nguyen",
       okTitle: "The fund has your message",
-      okBody: "Thank you. Your reference is {id}. The fund will get back to you within 24 hours, on the channel you chose.",
+      okBody: "Thank you. Your reference is {id}. The fund will get back to you within 1–2 working days, on the channel you chose.",
       nextLabel: "While you wait, view the public statement",
     },
     footer: {
