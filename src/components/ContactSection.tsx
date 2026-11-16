@@ -11,22 +11,22 @@ const ContactSection = () => {
       <span id="gop-suc" aria-hidden="true" />
       <span id="lien-he" aria-hidden="true" />
       <div className="container mx-auto grid gap-8 px-4 md:grid-cols-[1fr_1.2fr] md:gap-12 md:px-6">
-        <div>
+        <div className="nlf-reveal">
           <span className="nlf-gold-rule mb-4" aria-hidden="true" />
           <h2 className="font-display text-2xl font-bold text-slate-900 md:text-4xl">{contact.heading}</h2>
           <p className="mt-3 max-w-md text-slate-700">{contact.body}</p>
-          <ul className="mt-6 space-y-3 text-sm">
+          <ul className="mt-5 space-y-1 text-sm">
             <li>
-              <a href={DONATE_URL} data-track="cta" data-cta="contact_donate" target="_blank" rel="noopener noreferrer" className="nlf-link font-medium">
+              <a href={DONATE_URL} data-track="cta" data-cta="contact_donate" target="_blank" rel="noopener noreferrer" className="nlf-link inline-block py-2.5 font-medium">
                 {contact.donateLink}
               </a>
             </li>
             <li>
-              <a href={STATEMENT_URL} data-track="cta" data-cta="contact_statement" target="_blank" rel="noopener noreferrer" className="nlf-link">
+              <a href={STATEMENT_URL} data-track="cta" data-cta="contact_statement" target="_blank" rel="noopener noreferrer" className="nlf-link inline-block py-2.5">
                 {contact.statementLink}
               </a>
             </li>
-            <li className="text-slate-700">
+            <li className="py-2.5 text-slate-700">
               {contact.emailLabel}{" "}
               <a href={mailto("contact_email")} data-track="contact" data-cta="contact_email" className="nlf-link break-all">
                 nhilefoundation.sg@gmail.com
@@ -39,6 +39,14 @@ const ContactSection = () => {
             site="nlf"
             lang={language}
             compact=""
+            channels=""
+            ok-title-vi="Quỹ đã nhận lời nhắn của bạn"
+            ok-title-en="The fund has your message"
+            ok-body-vi="Cảm ơn bạn. Mã của bạn là {id}. Quỹ sẽ liên hệ lại trong {reply}, qua {channel}."
+            ok-body-en="Thank you. Your reference is {id}. The fund will get back to you within {reply}, by {channel}."
+            next-href={STATEMENT_URL}
+            next-vi="Trong lúc chờ, xem sao kê công khai"
+            next-en="While you wait, view the public statement"
             no-heading=""
             data-cta="gop_suc_form"
             topics-vi="Góp sức cho quỹ|Ủng hộ – quyên góp|Hợp tác tổ chức|Giới thiệu hoàn cảnh cần hỗ trợ"

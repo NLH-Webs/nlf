@@ -13,7 +13,9 @@
     // Touchpoints: every important link carries data-track (cta|contact|ecosystem) and data-cta.
     // Only these labels go to GA4 (existing tag), never names, emails or phone numbers.
     document.addEventListener('click', function (e) {
-      var a = e.target && e.target.closest ? e.target.closest('[data-track]') : null;
+      // composedPath reaches links inside the contact form's shadow DOM too.
+      var path = e.composedPath ? e.composedPath() : [e.target], a = null;
+      for (var k = 0; k < path.length && !a; k++) { if (path[k].getAttribute && path[k].getAttribute('data-track')) a = path[k]; }
       if (!a) return;
       gtag('event', 'nlf_' + a.getAttribute('data-track'), { cta: a.getAttribute('data-cta') || '' });
     });
@@ -43,6 +45,7 @@
 <body>
   <div id="root"></div>
   <script type="module" src="/src/main.tsx"></script>
+  <script src="/nlh/nlh-track.js" data-site="nlf.sg" defer></script>
   <script src="/nlh/nlh-contact.js" defer></script>
   </body>
 

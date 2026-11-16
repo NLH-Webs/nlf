@@ -63,3 +63,37 @@
 }
 /* Shared lead form section (nlh-contact). */
 .nlh-lead { padding: var(--s-8) var(--gutter); background: var(--bg-sunken); }
+
+/* ---- Money-flow picture (hero) ---- */
+.nlf-flow-line {
+  position: absolute;
+  top: 1.5rem;            /* centre of the 48px icon circle */
+  left: 12.5%;
+  right: 12.5%;
+  height: 2px;
+  background: var(--nlf-gold);
+  z-index: 0;
+}
+@media (min-width: 768px) { .nlf-flow-line { top: 1.75rem; } }
+.nlf-flow-step { z-index: 1; animation: nlf-rise 300ms ease-out both; }
+
+/* ---- Motion: 200–400 ms, only when the visitor has not asked for less motion ---- */
+@keyframes nlf-rise { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+.nlf-reveal { opacity: 0; transform: translateY(12px); transition: opacity 300ms ease-out, transform 300ms ease-out; }
+.nlf-reveal.is-visible { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) {
+  .nlf-flow-step { animation: none; }
+  .nlf-reveal { opacity: 1; transform: none; transition: none; }
+  html:focus-within { scroll-behavior: auto; }
+  body { scroll-behavior: auto; }
+}
+
+/* ---- Phones: body text never below 16px; tap targets at least 44px ---- */
+@media (max-width: 767px) {
+  [data-brand="nlf"] main .text-xs,
+  [data-brand="nlf"] main .text-sm,
+  [data-brand="nlf"] footer .text-xs,
+  [data-brand="nlf"] footer .text-sm { font-size: 1rem; line-height: 1.5rem; }
+  [data-brand="nlf"] #transparency button,
+  [data-brand="nlf"] header button { min-height: 44px; min-width: 44px; }
+}
