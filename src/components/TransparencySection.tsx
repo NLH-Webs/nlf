@@ -24,7 +24,7 @@ import { Calendar as CalendarComponent } from "@/components/ui/calendar";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useTranslations, useLanguage } from "@/contexts/language-context";
-import { API_ENDPOINTS, BANK_ACCOUNT_ID, DONATE_URL } from "@/config/api";
+import { API_ENDPOINTS, BANK_ACCOUNT_ID, STATEMENT_URL } from "@/config/api";
 import { maskName } from "@/lib/mask";
 import { Transaction, TransactionResponse, TransactionFilters } from "@/types/transaction";
 
@@ -218,7 +218,7 @@ const TransparencySection = () => {
 
         {/* Public statement on thiennguyen.app */}
         <a
-          href={DONATE_URL}
+          href={STATEMENT_URL}
           target="_blank"
           rel="noopener noreferrer"
           className="mx-auto mb-10 flex max-w-3xl flex-col items-center gap-4 rounded-2xl border border-primary/30 bg-primary/5 p-6 text-center transition hover:border-primary/60 hover:bg-primary/10 sm:flex-row sm:text-left"
@@ -422,7 +422,7 @@ const TransparencySection = () => {
                               {language === 'vi'
                                 ? 'Chưa tải được sao kê lúc này. Bạn xem trực tiếp trên '
                                 : "We couldn't load the statement right now. See it directly on "}
-                              <a href={DONATE_URL} target="_blank" rel="noopener noreferrer" className="text-primary underline">thiennguyen.app</a>
+                              <a href={STATEMENT_URL} target="_blank" rel="noopener noreferrer" className="text-primary underline">thiennguyen.app</a>
                             </>
                           ) : language === 'vi' ? 'Không có giao dịch nào' : 'No transactions found'}
                         </TableCell>

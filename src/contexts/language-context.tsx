@@ -121,16 +121,17 @@ const translations = {
       legalTitle: "Quỹ đứng tên ai",
       legalBody:
         "NhiLe Foundation là quỹ cộng đồng của NhiLe, lập năm 2021. Quỹ chưa phải pháp nhân riêng: tài khoản nhận tiền đứng tên cá nhân, và mọi giao dịch hiện trên sao kê công khai ở Thiện Nguyện. Khoảng 20% lợi nhuận của NhiLe được góp vào quỹ.",
-      badgeTitle: "Sao Kê Minh Bạch",
+      badgeTitle: "Sao kê công khai trên Thiện Nguyện",
       badgeDescription:
         "Mọi khoản đóng góp vào tài khoản quỹ đều hiện trên sao kê công khai của Thiện Nguyện (thiennguyen.app). Bạn tự kiểm được từng dòng.",
-      badgeCta: "Xem Sao Kê trên thiennguyen.app",
+      badgeCta: "Xem sao kê",
     },
     contact: {
       title: "Liên Hệ",
       subtitle: "Hãy kết nối với chúng tôi để cùng nhau lan tỏa yêu thương",
       email: "Email",
       address: "Minh bạch tài chính",
+      statementLink: "Sao kê công khai trên Thiện Nguyện",
       mapTitle: "Bản đồ",
       getInTouch: "Liên hệ với chúng tôi",
       sendMessage: "Gửi tin nhắn",
@@ -242,16 +243,17 @@ const translations = {
       legalTitle: "Who holds the fund",
       legalBody:
         "NhiLe Foundation is NhiLe's community fund, started in 2021. It is not yet a separate legal entity: the receiving account is held by an individual, and every transaction appears on the public statement on Thien Nguyen. About 20% of NhiLe's profit goes into the fund.",
-      badgeTitle: "Public bank statement",
+      badgeTitle: "Public statement on Thien Nguyen",
       badgeDescription:
         "Every transfer into the fund's account shows up on its public statement on Thien Nguyen (thiennguyen.app). You can check each line yourself.",
-      badgeCta: "View statement on thiennguyen.app",
+      badgeCta: "View statement",
     },
     contact: {
       title: "Contact",
       subtitle: "Connect with us to spread love together",
       email: "Email",
       address: "Financial transparency",
+      statementLink: "Public statement on Thien Nguyen",
       mapTitle: "Map",
       getInTouch: "Get in Touch",
       sendMessage: "Send Message",
