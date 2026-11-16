@@ -169,7 +169,16 @@ button,.btn{font:inherit;font-weight:600;font-size:var(--size-body,17px);min-hei
       var i = this.in;
       // compact: three boxes only (name, email, message) for pages where a short form converts better.
       this.compact = this.hasAttribute('compact');
-      if (this.compact) {
+      // compact + channels: four boxes (name, email-or-phone, how to reach you, message),
+      // for sites that must call people back on Zalo/phone, not only by email.
+      this.withChannel = this.compact && this.hasAttribute('channels');
+      if (this.withChannel) {
+        i.contact = el('input', { name: 'contact', autocomplete: 'email', required: '' });
+        f.appendChild(field(t.name + ' *', i.name, 'full'));
+        f.appendChild(field((this.lg === 'vi' ? 'Email hoặc số điện thoại' : 'Email or phone') + ' *', i.contact, 'full'));
+        f.appendChild(field(t.channel, i.channel, 'full'));
+        f.appendChild(field(t.message, i.message, 'full'));
+      } else if (this.compact) {
         i.email.setAttribute('required', '');
         f.appendChild(field(t.name + ' *', i.name, 'full'));
         f.appendChild(field(t.email + ' *', i.email, 'full'));
@@ -203,7 +212,12 @@ button,.btn{font:inherit;font-weight:600;font-size:var(--size-body,17px);min-hei
     }
 
     values() {
-      var i = this.in, phone = i.phone.value.trim();
+      var i = this.in;
+      if (i.contact) {
+        var c = i.contact.value.trim();
+        if (c.indexOf('@') > -1) { i.email.value = c; i.phone.value = ''; } else { i.email.value = ''; i.phone.value = c; }
+      }
+      var phone = i.phone.value.trim();
       if (phone && phone.charAt(0) !== '+') phone = i.code.value + ' ' + phone.replace(/^0+/, '');
       var ss = function (k) { try { return sessionStorage.getItem('nlh_' + k) || ''; } catch (e) { return ''; } };
       return {
@@ -222,7 +236,7 @@ button,.btn{font:inherit;font-weight:600;font-size:var(--size-body,17px);min-hei
     validate(v) {
       var t = this.t;
       if (!v.name) return t.needName;
-      if (this.compact && !v.email) return t.badEmail;
+      if (this.compact && !this.withChannel && !v.email) return t.badEmail;
       if (!v.email && !this.in.phone.value.trim()) return t.needContact;
       if (v.email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.email)) return t.badEmail;
       if (!v.consent) return t.needConsent;
@@ -250,9 +264,18 @@ button,.btn{font:inherit;font-weight:600;font-size:var(--size-body,17px);min-hei
 
     done(id) {
       var t = this.t;
-      this.form.replaceWith(el('div', { class: 'status', role: 'status' }, [
-        el('h3', { text: t.okTitle }), el('p', { text: t.okBody.replace('{id}', id || '') })
-      ]));
+      // Sites may set their own promise (ok-title, ok-body) and one next step (next-href, next-label).
+      var kids = [
+        el('h3', { text: this.getAttribute('ok-title') || t.okTitle }),
+        el('p', { text: (this.getAttribute('ok-body') || t.okBody).replace('{id}', id || '') })
+      ];
+      if (this.getAttribute('next-href') && this.getAttribute('next-label')) {
+        kids.push(el('div', { class: 'actions' }, [el('a', {
+          class: 'btn primary', href: this.getAttribute('next-href'), target: '_blank', rel: 'noopener noreferrer',
+          'data-track': 'cta', 'data-cta': (this.getAttribute('data-cta') || 'contact-form') + '_next', text: this.getAttribute('next-label')
+        })]));
+      }
+      this.form.replaceWith(el('div', { class: 'status', role: 'status' }, kids));
       try { window.dispatchEvent(new CustomEvent('nlh-lead', { detail: { site: this.site, id: id } })); } catch (e) {}
     }
 
@@ -285,7 +308,7 @@ button,.btn{font:inherit;font-weight:600;font-size:var(--size-body,17px);min-hei
     saveDraft() {
       try {
         var i = this.in, d = {};
-        ['name', 'email', 'phone', 'org', 'bestTime', 'message'].forEach(function (k) { d[k] = i[k].value; });
+        ['name', 'email', 'phone', 'org', 'bestTime', 'message', 'contact'].forEach(function (k) { if (i[k]) d[k] = i[k].value; });
         localStorage.setItem(this.draftKey, JSON.stringify(d));
       } catch (e) {}
     }

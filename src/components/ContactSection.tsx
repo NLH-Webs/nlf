@@ -39,6 +39,11 @@ const ContactSection = () => {
             site="nlf"
             lang={language}
             compact=""
+            channels=""
+            ok-title={contact.okTitle}
+            ok-body={contact.okBody}
+            next-href={STATEMENT_URL}
+            next-label={contact.nextLabel}
             no-heading=""
             data-cta="gop_suc_form"
             topics-vi="Góp sức cho quỹ|Ủng hộ – quyên góp|Hợp tác tổ chức|Giới thiệu hoàn cảnh cần hỗ trợ"
