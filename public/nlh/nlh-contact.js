@@ -167,12 +167,12 @@ button,.btn{font:inherit;font-weight:600;font-size:var(--size-body,17px);min-hei
         website: el('input', { name: 'website', tabindex: '-1', autocomplete: 'off' })
       };
       var i = this.in;
-      // compact: three boxes only (name, email-or-phone, message). Opt-in per site.
+      // compact: three boxes only (name, email, message) for pages where a short form converts better.
       this.compact = this.hasAttribute('compact');
       if (this.compact) {
-        i.contact = el('input', { name: 'contact', autocomplete: 'email', required: '' });
+        i.email.setAttribute('required', '');
         f.appendChild(field(t.name + ' *', i.name, 'full'));
-        f.appendChild(field((this.lg === 'vi' ? 'Email hoặc số điện thoại' : 'Email or phone') + ' *', i.contact, 'full'));
+        f.appendChild(field(t.email + ' *', i.email, 'full'));
         f.appendChild(field(t.message, i.message, 'full'));
       } else {
       f.appendChild(field(t.name + ' *', i.name, 'full'));
@@ -203,12 +203,7 @@ button,.btn{font:inherit;font-weight:600;font-size:var(--size-body,17px);min-hei
     }
 
     values() {
-      var i = this.in;
-      if (i.contact) {
-        var c = i.contact.value.trim();
-        if (c.indexOf('@') > -1) { i.email.value = c; i.phone.value = ''; } else { i.email.value = ''; i.phone.value = c; }
-      }
-      var phone = i.phone.value.trim();
+      var i = this.in, phone = i.phone.value.trim();
       if (phone && phone.charAt(0) !== '+') phone = i.code.value + ' ' + phone.replace(/^0+/, '');
       var ss = function (k) { try { return sessionStorage.getItem('nlh_' + k) || ''; } catch (e) { return ''; } };
       return {
@@ -227,6 +222,7 @@ button,.btn{font:inherit;font-weight:600;font-size:var(--size-body,17px);min-hei
     validate(v) {
       var t = this.t;
       if (!v.name) return t.needName;
+      if (this.compact && !v.email) return t.badEmail;
       if (!v.email && !this.in.phone.value.trim()) return t.needContact;
       if (v.email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.email)) return t.badEmail;
       if (!v.consent) return t.needConsent;
@@ -267,9 +263,14 @@ button,.btn{font:inherit;font-weight:600;font-size:var(--size-body,17px);min-hei
       var body = [
         t.name + ': ' + v.name, t.email + ': ' + v.email, t.phone + ': ' + v.phone,
         t.channel + ': ' + v.channel, t.country + ': ' + v.country, t.topic + ': ' + v.topic,
-        t.org + ': ' + v.organisation, t.bestTime + ': ' + v.bestTime, '', v.message, '', '— ' + v.site + ' · ' + v.page
+        t.org + ': ' + v.organisation, t.bestTime + ': ' + v.bestTime, '', v.message, '',
+        '— ' + v.site + ' · ' + v.page,
+        'source: ' + [v.referrer, v.utm_source, v.utm_medium, v.utm_campaign].filter(Boolean).join(' · ')
       ].join('\n');
-      var href = 'mailto:' + TEAM_EMAIL + '?subject=' + encodeURIComponent('[Lead] ' + v.site + ' · ' + (v.topic || '') + ' · ' + v.name) + '&body=' + encodeURIComponent(body);
+      // Subject carries only where the note came from: "[<site>] <data-cta>". The visitor's name
+      // stays in the body, never in the subject (inbox previews, filters and logs show subjects).
+      var cta = this.getAttribute('data-cta') || 'contact-form';
+      var href = 'mailto:' + TEAM_EMAIL + '?subject=' + encodeURIComponent('[' + v.site + '] ' + cta) + '&body=' + encodeURIComponent(body);
       var box = el('div', { class: 'status full', role: 'alert' }, [
         el('h3', { text: t.errTitle }), el('p', { text: t.errBody }),
         el('div', { class: 'actions' }, [el('a', { class: 'btn primary', href: href, text: t.errMail })])
@@ -284,7 +285,7 @@ button,.btn{font:inherit;font-weight:600;font-size:var(--size-body,17px);min-hei
     saveDraft() {
       try {
         var i = this.in, d = {};
-        ['name', 'email', 'phone', 'org', 'bestTime', 'message', 'contact'].forEach(function (k) { if (i[k]) d[k] = i[k].value; });
+        ['name', 'email', 'phone', 'org', 'bestTime', 'message'].forEach(function (k) { d[k] = i[k].value; });
         localStorage.setItem(this.draftKey, JSON.stringify(d));
       } catch (e) {}
     }

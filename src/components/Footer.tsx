@@ -24,7 +24,7 @@ const Footer = () => {
             </a>
           </li>
           <li>
-            <a href={mailto("Chân trang - email")} data-track="contact" data-cta="footer_email" className="underline decoration-[color:var(--nlf-gold-light)] underline-offset-4">
+            <a href={mailto("footer_email")} data-track="contact" data-cta="footer_email" className="underline decoration-[color:var(--nlf-gold-light)] underline-offset-4">
               nhilefoundation.sg@gmail.com
             </a>
           </li>

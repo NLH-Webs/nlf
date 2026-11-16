@@ -28,7 +28,7 @@ const ContactSection = () => {
             </li>
             <li className="text-slate-700">
               {contact.emailLabel}{" "}
-              <a href={mailto("Góp sức - email")} data-track="contact" data-cta="contact_email" className="nlf-link break-all">
+              <a href={mailto("contact_email")} data-track="contact" data-cta="contact_email" className="nlf-link break-all">
                 nhilefoundation.sg@gmail.com
               </a>
             </li>
@@ -40,6 +40,7 @@ const ContactSection = () => {
             lang={language}
             compact=""
             no-heading=""
+            data-cta="gop_suc_form"
             topics-vi="Góp sức cho quỹ|Ủng hộ – quyên góp|Hợp tác tổ chức|Giới thiệu hoàn cảnh cần hỗ trợ"
             topics-en="Help the fund|Donation|Organisational partnership|Refer someone who needs support"
           />

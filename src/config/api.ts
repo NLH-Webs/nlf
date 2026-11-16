@@ -32,5 +32,5 @@ export const DONATE_URL = 'https://thiennguyen.app/user/nhilefoundation';
 export const NLH_URL = 'https://nlh.vn/?utm_source=nlf.sg&utm_medium=web&utm_campaign=ecosystem';
 // mailto with a subject that says which site and which button it came from.
 export const mailto = (cta: string) =>
-  `mailto:nhilefoundation.sg@gmail.com?subject=${encodeURIComponent(`[nlf.sg] ${cta}`)}`;
+  `mailto:nhilefoundation.sg@gmail.com?subject=${encodeURIComponent(`[nlf] ${cta}`)}`;
 export const STATEMENT_URL = 'https://thiennguyen.app/user/nhilefoundation?tab=TRANSACTIONS';
