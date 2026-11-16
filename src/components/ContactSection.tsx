@@ -38,12 +38,10 @@ const ContactSection = () => {
           <nlh-contact
             site="nlf"
             lang={language}
-            compact=""
-            channels=""
-            ok-title={contact.okTitle}
-            ok-body={contact.okBody}
+            fields="contact,channel,message"
             next-href={STATEMENT_URL}
-            next-label={contact.nextLabel}
+            next-vi="Trong lúc chờ, xem sao kê công khai"
+            next-en="While you wait, view the public statement"
             no-heading=""
             data-cta="gop_suc_form"
             topics-vi="Góp sức cho quỹ|Ủng hộ – quyên góp|Hợp tác tổ chức|Giới thiệu hoàn cảnh cần hỗ trợ"
