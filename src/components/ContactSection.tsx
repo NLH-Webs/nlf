@@ -1,5 +1,5 @@
 import { useLanguage, useTranslations } from "@/contexts/language-context";
-import { DONATE_URL, STATEMENT_URL } from "@/config/api";
+import { DONATE_URL, STATEMENT_URL, mailto } from "@/config/api";
 
 // One job here: leave a message (three boxes). Donating is a plain link, not a second button.
 const ContactSection = () => {
@@ -17,18 +17,18 @@ const ContactSection = () => {
           <p className="mt-3 max-w-md text-slate-700">{contact.body}</p>
           <ul className="mt-6 space-y-3 text-sm">
             <li>
-              <a href={DONATE_URL} target="_blank" rel="noopener noreferrer" className="nlf-link font-medium">
+              <a href={DONATE_URL} data-track="cta" data-cta="contact_donate" target="_blank" rel="noopener noreferrer" className="nlf-link font-medium">
                 {contact.donateLink}
               </a>
             </li>
             <li>
-              <a href={STATEMENT_URL} target="_blank" rel="noopener noreferrer" className="nlf-link">
+              <a href={STATEMENT_URL} data-track="cta" data-cta="contact_statement" target="_blank" rel="noopener noreferrer" className="nlf-link">
                 {contact.statementLink}
               </a>
             </li>
             <li className="text-slate-700">
               {contact.emailLabel}{" "}
-              <a href="mailto:nhilefoundation.sg@gmail.com" className="nlf-link break-all">
+              <a href={mailto("Góp sức - email")} data-track="contact" data-cta="contact_email" className="nlf-link break-all">
                 nhilefoundation.sg@gmail.com
               </a>
             </li>

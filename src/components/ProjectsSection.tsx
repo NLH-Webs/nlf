@@ -46,6 +46,8 @@ const ProjectsSection = () => {
               <p className="mt-2 flex-1 text-sm text-slate-700">{item.description}</p>
               <a
                 href={projectLinks[index]}
+                data-track="cta"
+                data-cta={`project_post_${index + 1}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="nlf-link mt-4 inline-flex items-center gap-1 text-sm font-medium"

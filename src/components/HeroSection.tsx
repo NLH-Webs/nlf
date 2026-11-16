@@ -71,13 +71,15 @@ const HeroSection = () => {
           <div className="mt-6 flex flex-col items-start gap-4 sm:flex-row sm:items-center">
             <a
               href={STATEMENT_URL}
+              data-track="cta"
+              data-cta="hero_statement"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-block rounded-full bg-primary px-7 py-3 font-semibold text-primary-foreground shadow-md transition hover:brightness-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-900 focus-visible:ring-offset-2"
             >
               {hero.cta}
             </a>
-            <a href="#gop-suc" className="nlf-link text-sm font-medium">
+            <a href="#gop-suc" data-track="contact" data-cta="hero_leave_message" className="nlf-link text-sm font-medium">
               {hero.secondary}
             </a>
           </div>
@@ -85,6 +87,8 @@ const HeroSection = () => {
           <p className="mt-6 text-sm text-slate-700">
             <a
               href="https://www.facebook.com/nlf.sg/reviews"
+              data-track="cta"
+              data-cta="hero_fb_reviews"
               target="_blank"
               rel="noopener noreferrer"
               className="nlf-link"

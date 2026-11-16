@@ -211,6 +211,8 @@ const TransparencySection = () => {
         {/* Public statement on thiennguyen.app */}
         <a
           href={STATEMENT_URL}
+          data-track="cta"
+          data-cta="transparency_statement"
           target="_blank"
           rel="noopener noreferrer"
           className="mb-10 flex max-w-3xl flex-col items-start gap-4 rounded-2xl border-2 border-[color:var(--nlf-gold)] bg-card p-5 text-left transition hover:shadow-md sm:flex-row sm:items-center md:p-6"
@@ -396,7 +398,7 @@ const TransparencySection = () => {
                               {language === 'vi'
                                 ? 'Chưa tải được sao kê lúc này. Bạn xem trực tiếp trên '
                                 : "We couldn't load the statement right now. See it directly on "}
-                              <a href={STATEMENT_URL} target="_blank" rel="noopener noreferrer" className="nlf-link">thiennguyen.app</a>
+                              <a href={STATEMENT_URL} data-track="cta" data-cta="table_error_statement" target="_blank" rel="noopener noreferrer" className="nlf-link">thiennguyen.app</a>
                             </>
                           ) : language === 'vi' ? 'Không có giao dịch nào' : 'No transactions found'}
                         </TableCell>

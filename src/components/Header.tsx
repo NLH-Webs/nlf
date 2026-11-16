@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from "react";
 
 import { useTranslations } from "@/contexts/language-context";
 import LanguageToggle from "@/components/LanguageToggle";
+import { NLH_URL } from "@/config/api";
 import { Menu, X } from "lucide-react";
 
 const SECTION_IDS = ["projects", "transparency", "contact"] as const;
@@ -83,7 +84,9 @@ const Header = () => {
             </button>
           ))}
           <a
-            href="https://nlh.vn"
+            href={NLH_URL}
+            data-track="ecosystem"
+            data-cta="header_nlh"
             target="_blank"
             rel="noopener noreferrer"
             className="px-3 py-2 text-sm text-slate-700 transition-colors duration-200 hover:text-slate-900"
@@ -125,7 +128,9 @@ const Header = () => {
             </button>
           ))}
           <a
-            href="https://nlh.vn"
+            href={NLH_URL}
+            data-track="ecosystem"
+            data-cta="menu_nlh"
             target="_blank"
             rel="noopener noreferrer"
             className="block w-full rounded-md px-3 py-2 text-left text-slate-700 transition-colors hover:bg-slate-100 hover:text-slate-900"

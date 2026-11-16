@@ -10,12 +10,12 @@
     gtag('js', new Date());
 
     gtag('config', 'G-WQXXJ7EKCJ');
-    // Measure the page's one job: opening the public statement, plus donate clicks and leads.
+    // Touchpoints: every important link carries data-track (cta|contact|ecosystem) and data-cta.
+    // Only these labels go to GA4 (existing tag), never names, emails or phone numbers.
     document.addEventListener('click', function (e) {
-      var a = e.target && e.target.closest ? e.target.closest('a[href*="thiennguyen.app"]') : null;
+      var a = e.target && e.target.closest ? e.target.closest('[data-track]') : null;
       if (!a) return;
-      var where = (a.closest('section,footer,header') || {}).id || 'footer';
-      gtag('event', /tab=TRANSACTIONS/.test(a.href) ? 'open_statement' : 'donate_click', { link_location: where });
+      gtag('event', 'nlf_' + a.getAttribute('data-track'), { cta: a.getAttribute('data-cta') || '' });
     });
     window.addEventListener('nlh-lead', function () { gtag('event', 'generate_lead', { site: 'nlf' }); });
   </script>
