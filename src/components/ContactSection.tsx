@@ -38,7 +38,12 @@ const ContactSection = () => {
           <nlh-contact
             site="nlf"
             lang={language}
-            fields="contact,channel,message"
+            compact=""
+            channels=""
+            ok-title-vi="Quỹ đã nhận lời nhắn của bạn"
+            ok-title-en="The fund has your message"
+            ok-body-vi="Cảm ơn bạn. Mã của bạn là {id}. Quỹ sẽ liên hệ lại trong {reply}, qua {channel}."
+            ok-body-en="Thank you. Your reference is {id}. The fund will get back to you within {reply}, by {channel}."
             next-href={STATEMENT_URL}
             next-vi="Trong lúc chờ, xem sao kê công khai"
             next-en="While you wait, view the public statement"
