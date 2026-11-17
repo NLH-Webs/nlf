@@ -7,17 +7,18 @@
 /* Design system: NLH tokens (src/styles/nlh/nlh-tokens.css). No colours are defined here. */
 
 /* nlf palette: NhiLe Brand Guide v3.0 (đen #0D0D0D, đỏ thẫm #8B1A1A, vàng kim #B7860B,
-   vàng sáng #E8C070, kem #F8F4EE), 60·20·20. Đỏ thẫm (--action) is reserved for the ONE
-   primary button per screen. Gold is decoration only on light backgrounds (2.98:1 on kem). */
+   vàng sáng #E8C070, kem #F8F4EE), 60·20·20. Per BRAND.md (Nếp S-0172) vàng sáng (--action)
+   is reserved for the ONE primary button per screen, black text on it (11.3:1). Vàng kim is
+   decoration only on light backgrounds (2.98:1 on kem). */
 [data-brand="nlf"] {
   --nlf-ink: #0D0D0D;
   --nlf-crimson: #8B1A1A;
   --nlf-gold: #B7860B;
   --nlf-gold-light: #E8C070;
   --nlf-cream: #F8F4EE;
-  --action: var(--nlf-crimson);
-  --action-on: #FFFFFF;
-  --action-ink: var(--nlf-crimson);
+  --action: var(--nlf-gold-light);
+  --action-on: var(--nlf-ink);
+  --action-ink: var(--nlf-ink);
   --bg-base: var(--nlf-cream);
   --bg-sunken: #F1EADF;
   --bg-raised: #FFFFFF;
