@@ -53,7 +53,8 @@ const translations = {
       heading: "9 hoạt động quỹ đã làm",
       subheading:
         "Mỗi hoạt động có bài và ảnh đầy đủ trên trang Facebook của quỹ.",
-      imageAlt: "Bánh kẹo được trao tận tay các em",
+      imageAlt: "Tình nguyện viên của quỹ trao túi quà tận tay một cụ bà",
+      imageCaption: "Trao quà tận tay. Ảnh của quỹ, đã đăng trên nlf.sg.",
       items: [
         {
           title: "Nụ cười chiến binh nhí",
@@ -162,7 +163,8 @@ const translations = {
     projects: {
       heading: "9 things the fund has done",
       subheading: "Each one has a full post with photos on the fund's Facebook page.",
-      imageAlt: "Snacks handed out to children",
+      imageAlt: "A fund volunteer handing a gift bag to an elderly woman",
+      imageCaption: "Gifts handed over in person. Photo by the fund, published on nlf.sg.",
       items: [
         {
           title: "Smiles of Little Warriors",
