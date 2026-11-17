@@ -71,6 +71,7 @@ const ContactSection = () => {
             next-en="While you wait, view the public statement"
             no-heading=""
             data-cta="gop_suc_form"
+            team-email="nhilefoundation.sg@gmail.com"
             topics-vi="Góp sức cho quỹ|Ủng hộ – quyên góp|Hợp tác tổ chức|Giới thiệu hoàn cảnh cần hỗ trợ"
             topics-en="Help the fund|Donation|Organisational partnership|Refer someone who needs support"
           />
