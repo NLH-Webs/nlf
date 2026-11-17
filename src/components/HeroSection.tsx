@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Gift, HandCoins, Landmark, ReceiptText, type LucideIcon } from "lucide-react";
 
-import handsGift from "@/assets/hands-gift.jpg";
+import handsGift from "@/assets/hands-gift.webp";
 import { useLanguage, useTranslations } from "@/contexts/language-context";
 import { API_ENDPOINTS, BANK_ACCOUNT_ID, STATEMENT_URL } from "@/config/api";
 import { prefersReducedMotion } from "@/hooks/use-reveal";

@@ -1,4 +1,4 @@
-import handsSnack from "@/assets/hands-snack.jpg";
+import traoQua from "@/assets/trao-qua.webp";
 import { useTranslations } from "@/contexts/language-context";
 import { ArrowUpRight } from "lucide-react";
 
@@ -28,14 +28,17 @@ const ProjectsSection = () => {
             <h2 className="font-display text-2xl font-bold text-slate-900 md:text-4xl">{projects.heading}</h2>
             <p className="mt-2 max-w-2xl text-slate-700">{projects.subheading}</p>
           </div>
-          <img
-            src={handsSnack}
-            alt={projects.imageAlt}
-            width={434}
-            height={572}
-            loading="lazy"
-            className="hidden h-56 w-full rounded-2xl object-cover shadow md:block"
-          />
+          <figure>
+            <img
+              src={traoQua}
+              alt={projects.imageAlt}
+              width={1140}
+              height={960}
+              loading="lazy"
+              className="h-48 w-full rounded-2xl object-cover object-[60%_40%] shadow md:h-56"
+            />
+            <figcaption className="mt-2 text-sm text-slate-700">{projects.imageCaption}</figcaption>
+          </figure>
         </div>
 
         {/* F pattern: short title first, then at most two sentences, then one link. */}
