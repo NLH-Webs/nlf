@@ -22,6 +22,7 @@
  *   message-en / message-vi         label of the message box.
  *   consent-en / consent-vi         consent sentence, so a partner site can name itself.
  *   data-cta                        names the form in the email fallback subject.
+ *   team-email                      address for the email fallback button (default contact@nhi.sg).
  *
  * Posts to the NhiLe Leads Apps Script (Google Sheet + email to contact@nhi.sg).
  * Never shows a fake success: on any failure the visitor keeps their text and
@@ -315,7 +316,9 @@ button,.btn{font:inherit;font-weight:600;font-size:var(--size-body,17px);min-hei
         signal: ctrl ? ctrl.signal : undefined
       }).then(function (r) { return r.json(); }).then(function (res) {
         clearTimeout(timer);
-        if (res && res.ok) { self.clearDraft(); self.done(res.id, v); } else { self.fail(v); }
+        // The lead script answers ok with id 'ignored' when it drops a send it thinks is a bot (sent too fast).
+        // A real person who typed fast must not see a fake success: show the email fallback instead.
+        if (res && res.ok && res.id && res.id !== 'ignored') { self.clearDraft(); self.done(res.id, v); } else { self.fail(v); }
       }).catch(function () { clearTimeout(timer); self.fail(v); });
     }
 
@@ -354,7 +357,7 @@ button,.btn{font:inherit;font-weight:600;font-size:var(--size-body,17px);min-hei
       // Subject carries only where the note came from: "[<site>] <data-cta>". The visitor's name
       // stays in the body, never in the subject (inbox previews, filters and logs show subjects).
       var cta = this.getAttribute('data-cta') || 'contact-form';
-      var href = 'mailto:' + TEAM_EMAIL + '?subject=' + encodeURIComponent('[' + v.site + '] ' + cta) + '&body=' + encodeURIComponent(body);
+      var href = 'mailto:' + (this.getAttribute('team-email') || TEAM_EMAIL) + '?subject=' + encodeURIComponent('[' + v.site + '] ' + cta) + '&body=' + encodeURIComponent(body);
       var box = el('div', { class: 'status full', role: 'alert' }, [
         el('h3', { text: t.errTitle }), el('p', { text: t.errBody }),
         el('div', { class: 'actions' }, [el('a', { class: 'btn primary', href: href, text: t.errMail })])
