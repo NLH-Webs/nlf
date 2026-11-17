@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { useLanguage, useTranslations } from "@/contexts/language-context";
 import { DONATE_URL, STATEMENT_URL, mailto } from "@/config/api";
 
@@ -5,6 +6,27 @@ import { DONATE_URL, STATEMENT_URL, mailto } from "@/config/api";
 const ContactSection = () => {
   const { contact } = useTranslations();
   const { language } = useLanguage();
+
+  // The shared form (nlh-contact) draws its buttons inside an open shadow root. Add nlf's
+  // ink outline to its primary buttons (Gửi, and the next-step / email buttons) without
+  // touching the shared file. adoptedStyleSheets survives the form re-rendering itself.
+  useEffect(() => {
+    let cancelled = false;
+    customElements.whenDefined("nlh-contact").then(() => {
+      const root = document.querySelector("nlh-contact")?.shadowRoot;
+      if (cancelled || !root || !("adoptedStyleSheets" in root)) return;
+      const sheet = new CSSStyleSheet();
+      sheet.replaceSync(
+        ".primary{box-shadow:inset 0 0 0 1.5px #0D0D0D}",
+      );
+      if (!root.adoptedStyleSheets.some((s) => s.cssRules[0]?.cssText.includes("1.5px"))) {
+        root.adoptedStyleSheets = [...root.adoptedStyleSheets, sheet];
+      }
+    });
+    return () => {
+      cancelled = true;
+    };
+  }, []);
 
   return (
     <section id="contact" className="bg-secondary py-14 md:py-20">
