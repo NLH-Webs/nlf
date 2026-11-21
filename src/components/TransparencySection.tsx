@@ -179,7 +179,7 @@ const TransparencySection = () => {
 
   const getTransactionTypeColor = (type: string) => {
     return type === 'CREDIT'
-      ? 'bg-[#F3E6C4] text-slate-900 hover:bg-[#F3E6C4]'
+      ? 'bg-[color:var(--nlf-chip)] text-[#0D0D0D] hover:bg-[color:var(--nlf-chip)]'
       : 'bg-slate-200 text-slate-900 hover:bg-slate-200';
   };
 
@@ -349,7 +349,7 @@ const TransparencySection = () => {
                   placeholder={language === 'vi' ? 'Tìm kiếm mã giao dịch hoặc số tài khoản...' : 'Search transaction ID or account number...'}
                   value={searchKeyword}
                   onChange={(e) => setSearchKeyword(e.target.value)}
-                  className="w-full sm:w-[300px]"
+                  className="h-11 w-full sm:w-[300px]"
                 />
                 <Button onClick={handleSearch} disabled={loading} variant="outline" aria-label={language === 'vi' ? 'Tìm' : 'Search'}>
                   <Search strokeWidth={1.75} className="h-4 w-4" />

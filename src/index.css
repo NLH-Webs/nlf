@@ -6,24 +6,48 @@
 
 /* Design system: NLH tokens (src/styles/nlh/nlh-tokens.css). No colours are defined here. */
 
-/* nlf palette: NhiLe Brand Guide v3.0 (đen #0D0D0D, đỏ thẫm #8B1A1A, vàng kim #B7860B,
-   vàng sáng #E8C070, kem #F8F4EE), 60·20·20. Per BRAND.md (Nếp S-0172) vàng sáng (--action)
-   is reserved for the ONE primary button per screen, black text on it (11.3:1). Vàng kim is
-   decoration only on light backgrounds (2.98:1 on kem). */
+/* nlf palette: NhiLe Brand Guide v3.0, matched to demo.nlh.vn tokens (light / dark).
+   Đỏ thẫm (--action) is ONLY for the one primary button per screen, white text (9.3:1).
+   Form errors use dark gold (--state-error), never bright red. Vàng kim #B7860B is decoration;
+   gold TEXT uses --nlf-gold-text (#7A5906 on light, #E8C070 on dark). */
 [data-brand="nlf"] {
   --nlf-ink: #0D0D0D;
   --nlf-crimson: #8B1A1A;
   --nlf-gold: #B7860B;
   --nlf-gold-light: #E8C070;
   --nlf-cream: #F8F4EE;
-  --action: var(--nlf-gold-light);
-  --action-on: var(--nlf-ink);
-  --action-ink: var(--nlf-ink);
-  --bg-base: var(--nlf-cream);
+  --nlf-gold-text: #7A5906;
+  --nlf-chip: #F3E6C4;
+  --nlf-footer-bg: #0D0D0D;
+  --action: var(--nlf-crimson);
+  --action-on: #FFFFFF;
+  --action-ink: var(--nlf-crimson);
+  --bg-base: #F8F4EE;
   --bg-sunken: #F1EADF;
   --bg-raised: #FFFFFF;
-  --text-primary: var(--nlf-ink);
-  --text-secondary: #4A4540;
+  --text-primary: #0D0D0D;
+  --text-secondary: #4A433D;
+  --text-tertiary: #4A433D;
+  --line-hairline: #E2D7C7;
+  --line-strong: #E2D7C7;
+  --state-error: #7A5906;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  [data-brand="nlf"] {
+    --nlf-gold-text: #E8C070;
+    --nlf-footer-bg: #1B1716;
+    --bg-base: #0D0D0D;
+    --bg-sunken: #141110;
+    --bg-raised: #1B1716;
+    --text-primary: #F8F4EE;
+    --text-secondary: #CFC4B8;
+    --text-tertiary: #CFC4B8;
+    --line-hairline: #332B28;
+    --line-strong: #332B28;
+    --state-error: #E8C070;
+    color-scheme: dark;
+  }
 }
 
 @layer base {
@@ -50,13 +74,13 @@
     background: var(--nlf-gold);
   }
   .nlf-link {
-    color: var(--nlf-ink);
+    color: var(--text-primary);
     text-decoration: underline;
     text-decoration-color: var(--nlf-gold);
     text-decoration-thickness: 2px;
     text-underline-offset: 4px;
   }
-  .nlf-link:hover { text-decoration-color: var(--nlf-ink); }
+  .nlf-link:hover { text-decoration-color: var(--text-primary); }
   
   .backdrop-blur-custom {
     backdrop-filter: blur(16px);
@@ -91,6 +115,9 @@
 
 /* ---- Phones: body text never below 16px; tap targets at least 44px ---- */
 @media (max-width: 767px) {
+  [data-brand="nlf"] { --size-small: 1rem; --size-caption: 1rem; }
+  [data-brand="nlf"] header .text-xs,
+  [data-brand="nlf"] header .text-sm,
   [data-brand="nlf"] main .text-xs,
   [data-brand="nlf"] main .text-sm,
   [data-brand="nlf"] footer .text-xs,
@@ -99,9 +126,3 @@
   [data-brand="nlf"] header button { min-height: 44px; min-width: 44px; }
 }
 
-/* Primary button on light backgrounds: vàng sáng against kem is only ~1.4:1, so give it a
-   thin ink outline (>= 3:1 for the button edge, WCAG 1.4.11). nlf only; the shared design
-   system decides for other sites. The form's own button lives in nlh-contact's shadow DOM. */
-[data-brand="nlf"] main .bg-primary {
-  box-shadow: inset 0 0 0 1.5px var(--nlf-ink), 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-}

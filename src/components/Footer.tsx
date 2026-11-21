@@ -5,7 +5,7 @@ const Footer = () => {
   const { footer, nav, contact } = useTranslations();
 
   return (
-    <footer className="bg-[color:var(--nlf-ink)] py-10 text-[color:var(--nlf-cream)]">
+    <footer className="bg-[color:var(--nlf-footer-bg)] py-10 text-[color:var(--nlf-cream)]">
       <div className="container mx-auto flex flex-col gap-6 px-4 md:flex-row md:items-end md:justify-between md:px-6">
         <div>
           <p className="font-display text-xl font-bold">NhiLe Foundation</p>

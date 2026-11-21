@@ -12,7 +12,7 @@ const LanguageToggle = ({ className }: LanguageToggleProps) => {
   return (
     <div
       className={cn(
-        "flex items-center gap-2 rounded-full border border-slate-300 bg-white px-2.5 py-1.5 text-sm text-slate-600 shadow-sm",
+        "flex items-center gap-2 rounded-full border border-slate-300 bg-card px-2.5 py-1.5 text-sm text-slate-600 shadow-sm",
         "transition-colors duration-200",
         className,
       )}

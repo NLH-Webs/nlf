@@ -94,7 +94,7 @@ const HeroSection = () => {
                     className="nlf-flow-step relative flex flex-col items-center text-center"
                     style={{ animationDelay: `${i * 90}ms` }}
                   >
-                    <span className="flex h-12 w-12 items-center justify-center rounded-full border-2 border-[color:var(--nlf-gold)] bg-[#F3E6C4] text-slate-900 md:h-14 md:w-14">
+                    <span className="flex h-12 w-12 items-center justify-center rounded-full border-2 border-[color:var(--nlf-gold)] bg-[color:var(--nlf-chip)] text-[#0D0D0D] md:h-14 md:w-14">
                       <Icon className="h-6 w-6 md:h-7 md:w-7" strokeWidth={1.75} aria-hidden="true" />
                     </span>
                     <span className="mt-2 text-base font-semibold leading-tight text-slate-900">{step.title}</span>
