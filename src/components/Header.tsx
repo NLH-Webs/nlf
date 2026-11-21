@@ -2,7 +2,6 @@ import { useEffect, useMemo, useState } from "react";
 
 import { useTranslations } from "@/contexts/language-context";
 import LanguageToggle from "@/components/LanguageToggle";
-import { NLH_URL } from "@/config/api";
 import { Menu, X } from "lucide-react";
 
 const SECTION_IDS = ["projects", "transparency", "contact"] as const;
@@ -63,7 +62,10 @@ const Header = () => {
       <div className="container mx-auto flex items-center justify-between px-4 py-3 md:px-6">
         <div className="text-2xl font-bold text-slate-900">
           <button type="button" onClick={() => scrollToSection("hero")} aria-label="NhiLe Foundation">
-            <img src="/nlf-logo.png" alt="NhiLe Foundation" className="h-10 w-auto md:h-12" width="500" height="184" />
+            <picture>
+              <source srcSet="/nlf-logo-white.png" media="(prefers-color-scheme: dark)" />
+              <img src="/nlf-logo.png" alt="NhiLe Foundation" className="h-10 w-auto md:h-12" width="500" height="184" />
+            </picture>
           </button>
         </div>
 
@@ -83,16 +85,6 @@ const Header = () => {
               {label}
             </button>
           ))}
-          <a
-            href={NLH_URL}
-            data-track="ecosystem"
-            data-cta="header_nlh"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="px-3 py-2 text-sm text-slate-700 transition-colors duration-200 hover:text-slate-900"
-          >
-            {nav.holdings}
-          </a>
           <LanguageToggle className="ml-2" />
         </nav>
 
@@ -127,16 +119,6 @@ const Header = () => {
               {label}
             </button>
           ))}
-          <a
-            href={NLH_URL}
-            data-track="ecosystem"
-            data-cta="menu_nlh"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="block w-full rounded-md px-3 py-2 text-left text-slate-700 transition-colors hover:bg-slate-100 hover:text-slate-900"
-          >
-            {nav.holdings}
-          </a>
         </div>
       )}
     </header>

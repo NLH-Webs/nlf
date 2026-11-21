@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import { useLanguage, useTranslations } from "@/contexts/language-context";
 import { DONATE_URL, STATEMENT_URL, mailto } from "@/config/api";
 
@@ -7,26 +6,6 @@ const ContactSection = () => {
   const { contact } = useTranslations();
   const { language } = useLanguage();
 
-  // The shared form (nlh-contact) draws its buttons inside an open shadow root. Add nlf's
-  // ink outline to its primary buttons (Gửi, and the next-step / email buttons) without
-  // touching the shared file. adoptedStyleSheets survives the form re-rendering itself.
-  useEffect(() => {
-    let cancelled = false;
-    customElements.whenDefined("nlh-contact").then(() => {
-      const root = document.querySelector("nlh-contact")?.shadowRoot;
-      if (cancelled || !root || !("adoptedStyleSheets" in root)) return;
-      const sheet = new CSSStyleSheet();
-      sheet.replaceSync(
-        ".primary{box-shadow:inset 0 0 0 1.5px #0D0D0D}",
-      );
-      if (!root.adoptedStyleSheets.some((s) => s.cssRules[0]?.cssText.includes("1.5px"))) {
-        root.adoptedStyleSheets = [...root.adoptedStyleSheets, sheet];
-      }
-    });
-    return () => {
-      cancelled = true;
-    };
-  }, []);
 
   return (
     <section id="contact" className="bg-secondary py-14 md:py-20">
@@ -72,6 +51,8 @@ const ContactSection = () => {
             no-heading=""
             data-cta="gop_suc_form"
             team-email="nhilefoundation.sg@gmail.com"
+            consent-vi="Tôi đồng ý để NhiLe Foundation lưu và dùng thông tin này để liên hệ lại với tôi (bắt buộc)."
+            consent-en="I agree that NhiLe Foundation may store and use these details to contact me (required)."
             topics-vi="Góp sức cho quỹ|Ủng hộ – quyên góp|Hợp tác tổ chức|Giới thiệu hoàn cảnh cần hỗ trợ"
             topics-en="Help the fund|Donation|Organisational partnership|Refer someone who needs support"
           />
